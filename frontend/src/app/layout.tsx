@@ -3,6 +3,7 @@ import { Playfair_Display, Great_Vibes, Poppins } from 'next/font/google'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { AuthProvider } from '@/contexts/AuthContext'
+import { NavigationProgress } from '@/components/ui/NavigationProgress'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <body className="font-sans antialiased flex flex-col min-h-screen">
         <AuthProvider>
+          <NavigationProgress />
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
