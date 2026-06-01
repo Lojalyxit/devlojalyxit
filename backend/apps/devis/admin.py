@@ -20,7 +20,7 @@ class DevisServiceInline(admin.TabularInline):
 
 @admin.register(Devis)
 class DevisAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'nom', 'societe', 'email', 'statut_badge', 'budget', 'created_at')
+    list_display = ('pk', 'nom', 'societe', 'email', 'statut_badge', 'statut', 'budget', 'created_at')
     list_filter = ('statut', 'created_at')
     search_fields = ('nom', 'societe', 'email')
     list_editable = ('statut',)
