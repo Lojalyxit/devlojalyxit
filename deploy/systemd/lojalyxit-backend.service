@@ -1,0 +1,36 @@
+# /etc/systemd/system/lojalyxit-backend.service
+#
+# Unité systemd pour Django via Docker Compose (production)
+# ─────────────────────────────────────────────────────────
+# Installation :
+#   sudo cp deploy/systemd/lojalyxit-backend.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable lojalyxit-backend
+#   sudo systemctl start lojalyxit-backend
+
+[Unit]
+Description=LojalyxIT Backend (Django + Postgres via Docker Compose)
+After=network-online.target docker.service
+Requires=docker.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/opt/lojalyxit
+EnvironmentFile=/opt/lojalyxit/.env
+
+ExecStartPre=/usr/bin/docker compose -f docker-compose.prod.yml pull --quiet
+ExecStart=/usr/bin/docker compose -f docker-compose.prod.yml up -d --build
+ExecStop=/usr/bin/docker compose -f docker-compose.prod.yml down
+ExecReload=/usr/bin/docker compose -f docker-compose.prod.yml restart backend
+
+TimeoutStartSec=120
+TimeoutStopSec=30
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=lojalyxit-backend
+
+[Install]
+WantedBy=multi-user.target

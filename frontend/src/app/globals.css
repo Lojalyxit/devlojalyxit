@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary:      #559540;
+  --color-primary-dark: #628059;
+  --color-accent:       #C9A86A;
+  --color-bg-dark:      #080808;
+  --color-bg-deep:      #101001;
+  --color-title:        #E7E7E7;
+  --color-text-light:   #CECECA;
+  --color-text-dark:    #3D3D3D;
+  --color-muted:        #999999;
+  --color-white:        #FFFFFF;
+  --color-danger:       #FE2B54;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-textdark bg-white;
+    font-weight: 300;
+  }
+
+  h1,
+  h2 {
+    @apply font-display;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-sans font-semibold;
+  }
+}
+
+@layer components {
+  /* Boutons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-primary text-white px-6 py-3 rounded-btn font-sans font-medium
+           hover:bg-primary-dark transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center border border-accent text-accent px-6 py-3 rounded-btn font-sans font-medium
+           hover:bg-accent hover:text-bgdark transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center border border-primary text-primary px-6 py-3 rounded-btn font-sans font-medium
+           hover:bg-primary hover:text-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary;
+  }
+
+  /* Layout */
+  .container-main {
+    @apply max-w-container mx-auto px-5 md:px-20;
+  }
+
+  /* Fonds */
+  .section-dark {
+    @apply bg-bgdark text-textlight;
+  }
+
+  .section-deep {
+    @apply bg-bgdeep text-textlight;
+  }
+
+  /* Cartes */
+  .card {
+    @apply bg-white rounded-card shadow-sm;
+  }
+
+  /* Badge doré premium */
+  .badge-gold {
+    @apply inline-block bg-accent text-bgdark text-xs font-sans font-medium px-2 py-0.5 rounded;
+  }
+
+  /* Champ de formulaire */
+  .field {
+    @apply w-full border border-muted rounded-btn px-4 py-3 font-sans font-light text-textdark
+           focus:outline-none focus:border-primary transition-colors duration-150;
+  }
+}
