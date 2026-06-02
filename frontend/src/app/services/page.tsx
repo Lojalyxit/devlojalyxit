@@ -2,11 +2,43 @@ import Link from 'next/link'
 import { CheckCircle, ArrowRight } from 'lucide-react'
 import { getServices } from '@/lib/api'
 import { ServiceIcon } from '@/components/ui/ServiceIcon'
+import { ServiceImage } from '@/components/ui/ServiceImage'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Nos Services',
   description: 'Découvrez les 7 piliers de service de LojalyxIT : cloud, cybersécurité, développement, réseau, maintenance, équipements et formation à Conakry.',
+}
+
+const SERVICE_IMAGES: Record<string, { src: string; alt: string }> = {
+  'serveurs-cloud': {
+    src: '/images/services/01-serveurs-cloud.webp',
+    alt: 'Salle serveurs et infrastructure cloud',
+  },
+  'developpement-logiciel': {
+    src: '/images/services/02-developpement-logiciel.webp',
+    alt: "Développement d'applications sur mesure",
+  },
+  'reseau-infrastructure': {
+    src: '/images/services/03-infrastructure-reseau.webp',
+    alt: 'Câblage réseau et fibre optique',
+  },
+  'marketing-digital': {
+    src: '/images/services/04-marketing-digital.webp',
+    alt: 'Marketing digital et analyse de performance',
+  },
+  'maintenance-informatique': {
+    src: '/images/services/05-maintenance-support.webp',
+    alt: 'Support technique et helpdesk',
+  },
+  'vente-equipements': {
+    src: '/images/services/06-vente-equipements.webp',
+    alt: "Vente d'équipements informatiques",
+  },
+  'centre-formation': {
+    src: '/images/services/07-formation-certifiante.webp',
+    alt: 'Formation certifiante en salle',
+  },
 }
 
 const SERVICE_DETAILS: Record<string, string[]> = {
@@ -82,6 +114,7 @@ export default async function ServicesPage() {
       {/* Services alternés */}
       {services.map((service, index) => {
         const details = SERVICE_DETAILS[service.slug] ?? []
+        const image = SERVICE_IMAGES[service.slug]
         const isDark = index % 2 === 1
 
         return (
@@ -92,8 +125,8 @@ export default async function ServicesPage() {
           >
             <div className="container-main">
               <div className="flex flex-col md:flex-row gap-12 items-center">
-                {/* Texte */}
-                <div className="flex-1">
+                {/* Texte — second sur mobile, gauche sur desktop */}
+                <div className="flex-1 order-last md:order-first">
                   <div className="flex items-center gap-3 mb-4">
                     <ServiceIcon
                       name={service.icone}
@@ -125,15 +158,20 @@ export default async function ServicesPage() {
                   </Link>
                 </div>
 
-                {/* Visuel placeholder */}
-                <div className="flex-1 flex justify-center">
-                  <div className={`w-full max-w-sm aspect-square rounded-card flex items-center justify-center ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
-                    <ServiceIcon
-                      name={service.icone}
-                      size={96}
-                      className="text-primary/20"
+                {/* Image — premier sur mobile, droite sur desktop */}
+                <div className="flex-1 w-full flex justify-center order-first md:order-last">
+                  {image ? (
+                    <ServiceImage
+                      src={image.src}
+                      alt={image.alt}
+                      iconName={service.icone}
+                      priority={index === 0}
                     />
-                  </div>
+                  ) : (
+                    <div className={`w-full max-w-sm aspect-square rounded-card flex items-center justify-center bg-bgdeep`}>
+                      <ServiceIcon name={service.icone} size={96} className="text-primary opacity-30" />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
