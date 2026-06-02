@@ -1,4 +1,5 @@
 import { Award, Users, BookOpen, Cpu } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
@@ -153,31 +154,15 @@ export default function AProposPage() {
             {/* ── Photo + identité ── */}
             <div className="flex flex-col items-center md:items-start gap-5 shrink-0 w-full md:w-auto">
 
-              {/*
-                EMPLACEMENT PHOTO DU FONDATEUR
-                ──────────────────────────────
-                Quand la photo est disponible, remplacer le bloc ci-dessous par :
-
-                import Image from 'next/image'
-
-                <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden
-                                border-4 border-primary/40 shadow-lg shadow-primary/20">
-                  <Image
-                    src="/images/fondateur.jpg"   ← placer la photo dans /frontend/public/images/
-                    alt="HABA Cece Jérôme — Fondateur LojalyxIT"
-                    fill
-                    className="object-cover object-top"
-                    priority
-                  />
-                </div>
-              */}
-              <div className="w-44 h-44 md:w-52 md:h-52 rounded-full
-                              bg-gradient-to-br from-primary/30 to-primary/10
-                              border-4 border-primary/40 shadow-lg shadow-primary/20
-                              flex items-center justify-center shrink-0">
-                <span className="font-display text-primary text-4xl font-bold select-none tracking-wide">
-                  HCJ
-                </span>
+              <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden
+                              border-4 border-primary/40 shadow-lg shadow-primary/20 shrink-0">
+                <Image
+                  src="/images/fondateur.jpg"
+                  alt="HABA Cece Jérôme — Fondateur &amp; Directeur Général de LojalyxIT"
+                  fill
+                  className="object-cover object-top"
+                  priority
+                />
               </div>
 
               {/* Identité */}
