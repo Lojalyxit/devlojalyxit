@@ -1126,6 +1126,230 @@ FORMATIONS = [
         ],
     },
 
+    # ─── 7. Firewall FortiGate ────────────────────────────────────────────────
+    {
+        'slug': 'firewall-fortigate',
+        'titre': 'Firewall FortiGate — Administration et sécurité',
+        'domaine': 'Cybersécurité',
+        'duree_heures': 35,
+        'niveau': 'intermediaire',
+        'programme': (
+            "Module 1 : Introduction à FortiGate et à l'écosystème Fortinet\n"
+            'Module 2 : Installation et configuration initiale\n'
+            'Module 3 : Authentification et profils utilisateurs\n'
+            'Module 4 : Politiques de sécurité (firewall policies)\n'
+            'Module 5 : Inspection du contenu et sécurité applicative\n'
+            'Module 6 : VPN IPsec et SSL VPN\n'
+            'Module 7 : Routage avancé et SD-WAN\n'
+            'Module 8 : Haute disponibilité et supervision\n'
+            'Module 9 : Labs pratiques et préparation à la certification NSE 4'
+        ),
+        'description_longue': (
+            "Formation officielle alignée sur le cursus Fortinet NSE 4, référence mondiale "
+            "pour les administrateurs et ingénieurs sécurité travaillant avec les pare-feu "
+            "FortiGate. Couvre l'installation, la configuration, le déploiement, la sécurité "
+            "avancée et la supervision d'une infrastructure FortiGate en environnement "
+            "professionnel. À l'issue de la formation, les participants sont capables "
+            "d'administrer un FortiGate en production et de passer les examens "
+            "NSE 4 FortiGate Security et FortiGate Infrastructure."
+        ),
+        'certification': 'Fortinet NSE 4 — Network Security Professional (FortiGate Security + FortiGate Infrastructure)',
+        'tarif_min_gnf': 1800000,
+        'tarif_max_gnf': 3000000,
+        'modules': [
+            {
+                'titre': "Introduction à FortiGate et à l'écosystème Fortinet",
+                'ordre': 1,
+                'duree_heures': 3,
+                'objectifs': (
+                    "Comprendre le positionnement de Fortinet dans le marché de la sécurité\n"
+                    "Identifier les composants du Fortinet Security Fabric\n"
+                    "Naviguer dans les interfaces d'administration GUI et CLI du FortiGate"
+                ),
+                'contenu': (
+                    "Fortinet Security Fabric : architecture intégrée, produits (FortiGate, FortiAnalyzer, FortiManager, FortiSandbox)\n"
+                    "Gamme FortiGate : modèles entry-level, mid-range, high-end, FortiGate Cloud\n"
+                    "Architectures de déploiement : périmétrique, interne, NGFW, SD-WAN\n"
+                    "Interface GUI : tableau de bord, widgets, navigation, modes d'affichage\n"
+                    "Interface CLI : commandes de base, config/get/show/diagnose\n"
+                    "Licences FortiGuard : IPS, AV, Web Filter, App Control, abonnements"
+                ),
+                'video_url': None,
+                'video_disponible': False,
+            },
+            {
+                'titre': 'Installation et configuration initiale',
+                'ordre': 2,
+                'duree_heures': 4,
+                'objectifs': (
+                    "Déployer un FortiGate physique ou virtuel (VM)\n"
+                    "Configurer les interfaces, zones et le routage statique\n"
+                    "Maîtriser les modes NAT et Transparent"
+                ),
+                'contenu': (
+                    "Déploiement physique : rack, câblage, accès console, reset to factory\n"
+                    "FortiGate VM : déploiement VMware/KVM/Hyper-V, images, licences eval\n"
+                    "Mode NAT vs Transparent : différences, cas d'usage, configuration\n"
+                    "Interfaces réseau : types (physical, VLAN, aggregate, redundant, loopback)\n"
+                    "Zones de sécurité : création, association d'interfaces, politique inter-zone\n"
+                    "Routage statique : routes, passerelle par défaut, distance/métrique\n"
+                    "VLAN : 802.1Q, VLAN sous-interfaces, agrégation LACP"
+                ),
+                'video_url': None,
+                'video_disponible': False,
+            },
+            {
+                'titre': 'Authentification et profils utilisateurs',
+                'ordre': 3,
+                'duree_heures': 4,
+                'objectifs': (
+                    "Configurer l'authentification locale, LDAP et RADIUS\n"
+                    "Déployer le Fortinet Single Sign-On (FSSO)\n"
+                    "Implémenter le contrôle d'accès basé sur l'identité (IBAC)"
+                ),
+                'contenu': (
+                    "Authentification locale : utilisateurs, groupes, mots de passe\n"
+                    "LDAP : connexion à Active Directory, requêtes, groupes AD\n"
+                    "RADIUS : intégration, attributs VSA Fortinet, comptabilité\n"
+                    "FSSO : agent DC, Collector Agent, polling mode, transparence\n"
+                    "Authentification à deux facteurs : FortiToken (TOTP), email, SMS\n"
+                    "Profils administrateurs : accès restreint, profils read-only, super_admin\n"
+                    "IBAC : politiques basées sur l'identité utilisateur et le groupe AD"
+                ),
+                'video_url': None,
+                'video_disponible': False,
+            },
+            {
+                'titre': 'Politiques de sécurité (firewall policies)',
+                'ordre': 4,
+                'duree_heures': 5,
+                'objectifs': (
+                    "Créer et optimiser des politiques de filtrage FortiGate\n"
+                    "Configurer le NAT source, destination et les VIP\n"
+                    "Journaliser et analyser le trafic autorisé et bloqué"
+                ),
+                'contenu': (
+                    "Politiques de sécurité : source/destination interface/zone, adresses, services\n"
+                    "Actions : ACCEPT, DENY, IPSEC, SSL-VPN ; profiles de sécurité associés\n"
+                    "NAT source : IP pool, PAT, NAT dynamique\n"
+                    "NAT destination : VIP (Virtual IP), port forwarding\n"
+                    "Sessions : table de sessions, timeouts, helpers applicatifs\n"
+                    "Journalisation : niveaux de log, FortiLog, envoi vers FortiAnalyzer/syslog\n"
+                    "Ordonnancement et optimisation : priorité, hit count, politique par défaut"
+                ),
+                'video_url': None,
+                'video_disponible': False,
+            },
+            {
+                'titre': 'Inspection du contenu et sécurité applicative',
+                'ordre': 5,
+                'duree_heures': 6,
+                'objectifs': (
+                    "Configurer les profils antivirus, IPS et contrôle d'application\n"
+                    "Mettre en place le filtrage Web et l'inspection SSL/TLS\n"
+                    "Comprendre le sandboxing et la prévention DLP"
+                ),
+                'contenu': (
+                    "Antivirus : profils, modes (full, quick, deep scan), flux chiffrés\n"
+                    "IPS : signatures, anomalies, sévérité, protection DoS, exemptions\n"
+                    "Contrôle d'application : App Control profiles, catégories, overrides\n"
+                    "Filtrage Web : Web Filter profiles, catégories FortiGuard, Safe Search\n"
+                    "Filtrage DNS : DNS Filter, botnet C&C, blocage par catégorie\n"
+                    "Inspection SSL/TLS : deep inspection, certificats CA, exemptions\n"
+                    "DLP : profils, règles de détection, données sensibles\n"
+                    "FortiSandbox : intégration, analyse comportementale, verdict"
+                ),
+                'video_url': None,
+                'video_disponible': False,
+            },
+            {
+                'titre': 'VPN IPsec et SSL VPN',
+                'ordre': 6,
+                'duree_heures': 5,
+                'objectifs': (
+                    "Configurer un VPN site-à-site IPsec entre deux FortiGate\n"
+                    "Déployer le SSL VPN en mode portail et tunnel\n"
+                    "Dépanner et assurer la haute disponibilité des tunnels VPN"
+                ),
+                'contenu': (
+                    "VPN IPsec site-à-site : phase 1 (IKEv1/IKEv2), phase 2, politiques\n"
+                    "VPN dial-up : authentification dynamique, mode agressif\n"
+                    "SSL VPN portail : web-only, tunnel, split tunneling\n"
+                    "SSL VPN tunnel : FortiClient, politiques d'accès, 2FA\n"
+                    "Authentification VPN : preshared key, certificats, identités\n"
+                    "Haute disponibilité VPN : redundant tunnels, route monitoring\n"
+                    "Dépannage VPN : diagnose vpn ike, packet sniffer, debug flow"
+                ),
+                'video_url': None,
+                'video_disponible': False,
+            },
+            {
+                'titre': 'Routage avancé et SD-WAN',
+                'ordre': 7,
+                'duree_heures': 4,
+                'objectifs': (
+                    "Configurer OSPF et BGP sur FortiGate\n"
+                    "Implémenter des règles SD-WAN pour l'optimisation des liens WAN\n"
+                    "Mettre en place le policy-based routing"
+                ),
+                'contenu': (
+                    "Routage dynamique : OSPF (zones, LSA, authentification), BGP (eBGP, attributs)\n"
+                    "Route maps et filtres : prefix-list, access-list, redistribution\n"
+                    "Policy-based routing : critères (source, service, interface), action\n"
+                    "SD-WAN FortiGate : membres, zone SD-WAN, règles de performance\n"
+                    "Métriques SD-WAN : latence, jitter, packet loss, link health monitoring\n"
+                    "Sélection de chemin : SLA targets, stratégies (best quality, lowest cost)\n"
+                    "Dépannage SD-WAN : get router info, diagnose sys sdwan, logs"
+                ),
+                'video_url': None,
+                'video_disponible': False,
+            },
+            {
+                'titre': 'Haute disponibilité et supervision',
+                'ordre': 8,
+                'duree_heures': 2,
+                'objectifs': (
+                    "Configurer un cluster FortiGate en mode actif-passif et actif-actif\n"
+                    "Centraliser la supervision avec FortiAnalyzer et FortiManager\n"
+                    "Gérer les sauvegardes et restaurations de configuration"
+                ),
+                'contenu': (
+                    "Clusters HA : modes actif-passif et actif-actif, heartbeat, session pickup\n"
+                    "Configuration HA : priorité, password, monitored interfaces\n"
+                    "FortiAnalyzer : réception de logs, rapports, forensic\n"
+                    "FortiManager : gestion centralisée de politiques, déploiement\n"
+                    "Supervision SNMP : MIB Fortinet, traps, intégration NMS\n"
+                    "Journaux et rapports : FortiView, dashboards, rapports planifiés\n"
+                    "Sauvegarde et restauration : configuration, révisions, upgrade firmware"
+                ),
+                'video_url': None,
+                'video_disponible': False,
+            },
+            {
+                'titre': 'Labs pratiques et préparation à la certification NSE 4',
+                'ordre': 9,
+                'duree_heures': 2,
+                'objectifs': (
+                    "Consolider les acquis sur des scénarios complets de déploiement\n"
+                    "Maîtriser le dépannage FortiGate en conditions réelles\n"
+                    "Se préparer efficacement aux examens NSE 4 Security et Infrastructure"
+                ),
+                'contenu': (
+                    "Lab 1 : déploiement complet FortiGate (interfaces, zones, politiques, NAT)\n"
+                    "Lab 2 : sécurité applicative (AV, IPS, Web Filter, SSL inspection)\n"
+                    "Lab 3 : VPN IPsec site-à-site et SSL VPN avec FortiClient\n"
+                    "Lab 4 : SD-WAN avec deux liens WAN et SLA monitoring\n"
+                    "Lab 5 : cluster HA actif-passif avec bascule automatique\n"
+                    "Simulations d'examen NSE 4 : FortiGate Security (60 questions, 90 min)\n"
+                    "Simulations d'examen NSE 4 : FortiGate Infrastructure (60 questions, 90 min)\n"
+                    "Méthodologie de passage, ressources officielles Fortinet NSE Institute"
+                ),
+                'video_url': None,
+                'video_disponible': False,
+            },
+        ],
+    },
+
     # ─── Formations supplémentaires (sans modules détaillés) ──────────────────
     {
         'slug': 'devops-cloud-aws',
