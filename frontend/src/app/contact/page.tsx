@@ -21,7 +21,7 @@ const INFOS = [
   {
     icon: Phone,
     titre: 'Téléphone',
-    lines: ['+224 XXX XXX XXX'],
+    lines: ['+224 622 36 54 20'],
   },
   {
     icon: Clock,
