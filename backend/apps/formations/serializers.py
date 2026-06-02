@@ -1,5 +1,11 @@
 from rest_framework import serializers
-from .models import Formation, Session, Inscription
+from .models import Formation, FormationModule, Session, Inscription
+
+
+class FormationModuleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FormationModule
+        fields = ('id', 'titre', 'ordre', 'duree_heures', 'objectifs', 'contenu', 'video_url', 'video_disponible')
 
 
 class SessionSerializer(serializers.ModelSerializer):
@@ -17,6 +23,7 @@ class SessionSerializer(serializers.ModelSerializer):
 
 class FormationSerializer(serializers.ModelSerializer):
     sessions = SessionSerializer(many=True, read_only=True)
+    modules = FormationModuleSerializer(many=True, read_only=True)
 
     class Meta:
         model = Formation

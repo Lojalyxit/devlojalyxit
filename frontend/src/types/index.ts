@@ -30,9 +30,23 @@ export interface Session {
   places_restantes: number
 }
 
+export interface FormationModule {
+  id: number
+  titre: string
+  ordre: number
+  duree_heures: number
+  objectifs: string
+  contenu: string
+  video_url: string | null
+  video_disponible: boolean
+}
+
 export interface Formation extends FormationListItem {
   programme: string
+  description_longue: string
+  certification: string
   sessions: Session[]
+  modules: FormationModule[]
 }
 
 export interface PaginatedResponse<T> {

@@ -8,8 +8,9 @@ from .serializers import (
 
 
 class FormationViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Formation.objects.prefetch_related('sessions').all()
+    queryset = Formation.objects.prefetch_related('sessions', 'modules').all()
     permission_classes = [permissions.AllowAny]
+    lookup_field = 'slug'
 
     def get_serializer_class(self):
         if self.action == 'list':
@@ -18,9 +19,10 @@ class FormationViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 class FormationAdminViewSet(viewsets.ModelViewSet):
-    queryset = Formation.objects.prefetch_related('sessions').all()
+    queryset = Formation.objects.prefetch_related('sessions', 'modules').all()
     serializer_class = FormationSerializer
     permission_classes = [IsAdminRole]
+    lookup_field = 'slug'
 
 
 class SessionViewSet(viewsets.ReadOnlyModelViewSet):

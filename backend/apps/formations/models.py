@@ -14,7 +14,9 @@ class Formation(models.Model):
     domaine = models.CharField(max_length=100)
     duree_heures = models.PositiveSmallIntegerField()
     niveau = models.CharField(max_length=20, choices=NIVEAU_CHOICES)
-    programme = models.TextField()
+    programme = models.TextField(blank=True)
+    description_longue = models.TextField(blank=True)
+    certification = models.CharField(max_length=200, blank=True)
     tarif_min_gnf = models.DecimalField(max_digits=15, decimal_places=0)
     tarif_max_gnf = models.DecimalField(max_digits=15, decimal_places=0)
 
@@ -24,6 +26,25 @@ class Formation(models.Model):
 
     def __str__(self):
         return self.titre
+
+
+class FormationModule(models.Model):
+    formation = models.ForeignKey(Formation, on_delete=models.CASCADE, related_name='modules')
+    titre = models.CharField(max_length=200)
+    ordre = models.PositiveSmallIntegerField(default=1)
+    duree_heures = models.PositiveSmallIntegerField(default=1)
+    objectifs = models.TextField(blank=True)
+    contenu = models.TextField(blank=True)
+    video_url = models.URLField(blank=True, null=True)
+    video_disponible = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['ordre']
+        verbose_name = 'Module'
+        verbose_name_plural = 'Modules'
+
+    def __str__(self):
+        return f'{self.formation.titre} — M{self.ordre} : {self.titre}'
 
 
 class Session(models.Model):
