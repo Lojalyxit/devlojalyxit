@@ -8,6 +8,7 @@ import {
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useAuth } from '@/contexts/AuthContext'
+import { Logo } from '@/components/ui/Logo'
 
 const NAV = [
   { href: '/admin-panel', label: 'Tableau de bord', icon: LayoutDashboard, exact: true },
@@ -41,9 +42,7 @@ export function AdminSidebar() {
           <ShieldCheck size={18} className="text-accent" />
           <span className="text-accent text-xs font-medium uppercase tracking-widest">Back-office</span>
         </div>
-        <p className="font-display text-title text-lg font-bold leading-none">
-          Lojalyx<span className="text-primary">IT</span>
-        </p>
+        <Logo size="sm" />
         <p className="text-muted text-xs mt-0.5 truncate">{user?.email}</p>
       </div>
 

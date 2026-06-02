@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { Menu, X, User, LogOut, LayoutDashboard, ShieldCheck } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useAuth } from '@/contexts/AuthContext'
+import { Logo } from '@/components/ui/Logo'
 
 const NAV_LINKS = [
   { href: '/', label: 'Accueil' },
@@ -33,9 +34,7 @@ export function Header() {
       <div className="max-w-container mx-auto px-5 md:px-20 flex items-center justify-between h-16">
         {/* Logo */}
         <Link href="/" className="shrink-0">
-          <span className="font-display text-title text-xl font-bold leading-none">
-            Lojalyx<span className="text-primary">IT</span>
-          </span>
+          <Logo size="md" />
         </Link>
 
         {/* Navigation desktop */}

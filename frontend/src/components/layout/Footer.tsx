@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { MapPin, Phone, Mail } from 'lucide-react'
+import { Logo } from '@/components/ui/Logo'
 
 const SERVICES_LINKS = [
   { href: '/services#serveurs-cloud', label: 'Serveurs & Cloud' },
@@ -24,9 +25,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="md:col-span-1">
-            <p className="font-display text-title text-2xl font-bold mb-1">
-              Lojalyx<span className="text-primary">IT</span>
-            </p>
+            <Logo size="lg" className="mb-1" />
             <p className="font-script text-accent text-2xl mb-4">Solutions & Formation</p>
             <p className="text-sm text-textlight font-light leading-relaxed">
               Votre partenaire IT de confiance à Conakry. Innovation, expertise et formation certifiante

@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { Eye, EyeOff, LogIn } from 'lucide-react'
 import { useAuth } from '@/contexts/AuthContext'
 import { Field } from '@/components/ui/Field'
+import { Logo } from '@/components/ui/Logo'
 import { Button } from '@/components/ui/Button'
 import type { Metadata } from 'next'
 
@@ -41,9 +42,7 @@ export default function LoginPage() {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link href="/">
-            <span className="font-display text-title text-2xl font-bold">
-              Lojalyx<span className="text-primary">IT</span>
-            </span>
+            <Logo size="lg" />
           </Link>
           <p className="text-muted text-sm mt-2 font-light">Espace client</p>
         </div>

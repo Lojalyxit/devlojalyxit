@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 import { UserPlus } from 'lucide-react'
 import { clientApi } from '@/lib/client-api'
 import { useAuth } from '@/contexts/AuthContext'
+import { Logo } from '@/components/ui/Logo'
 import { Field } from '@/components/ui/Field'
 import { Button } from '@/components/ui/Button'
 
@@ -51,9 +52,7 @@ export default function RegisterPage() {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link href="/">
-            <span className="font-display text-title text-2xl font-bold">
-              Lojalyx<span className="text-primary">IT</span>
-            </span>
+            <Logo size="lg" />
           </Link>
           <p className="text-muted text-sm mt-2 font-light">Créez votre espace client</p>
         </div>
