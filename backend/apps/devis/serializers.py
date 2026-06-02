@@ -7,10 +7,11 @@ class DevisCreateSerializer(serializers.ModelSerializer):
     service_ids = serializers.PrimaryKeyRelatedField(
         queryset=Service.objects.all(), many=True, write_only=True
     )
+    id = serializers.IntegerField(read_only=True)  # retourné après création pour le rattachement
 
     class Meta:
         model = Devis
-        fields = ('nom', 'societe', 'email', 'telephone', 'besoin', 'budget', 'echeance', 'service_ids')
+        fields = ('id', 'nom', 'societe', 'email', 'telephone', 'besoin', 'budget', 'echeance', 'service_ids')
 
     def create(self, validated_data):
         services = validated_data.pop('service_ids', [])

@@ -1,9 +1,11 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { CheckCircle2, ChevronRight, ChevronLeft, Send } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import { CheckCircle2, ChevronRight, ChevronLeft, Send, UserPlus } from 'lucide-react'
 import { getServices } from '@/lib/api'
 import { clientApi } from '@/lib/client-api'
+import { auth } from '@/lib/auth'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/Button'
 import { Field, Textarea } from '@/components/ui/Field'
@@ -30,12 +32,17 @@ const ECHEANCES = ['Urgent (< 2 semaines)', '1 mois', '2 – 3 mois', '3 – 6 m
 const STEPS = ['Services', 'Détails', 'Coordonnées', 'Confirmation']
 
 export default function DevisPage() {
+  const router = useRouter()
   const [step, setStep] = useState(1)
   const [form, setForm] = useState<FormState>(INIT)
   const [services, setServices] = useState<Service[]>([])
   const [submitting, setSubmitting] = useState(false)
   const [done, setDone] = useState(false)
   const [error, setError] = useState('')
+  const [password, setPassword] = useState('')
+  const [password2, setPassword2] = useState('')
+  const [registering, setRegistering] = useState(false)
+  const [registerError, setRegisterError] = useState('')
 
   useEffect(() => {
     getServices().then(setServices)
@@ -82,19 +89,109 @@ export default function DevisPage() {
     }
   }
 
+  async function handleRegister() {
+    setRegisterError('')
+    if (password.length < 8) {
+      setRegisterError('Le mot de passe doit contenir au moins 8 caractères.')
+      return
+    }
+    if (password !== password2) {
+      setRegisterError('Les mots de passe ne correspondent pas.')
+      return
+    }
+    setRegistering(true)
+    try {
+      await clientApi.auth.register({
+        email: form.email,
+        password,
+        password2,
+        full_name: form.nom,
+        company: form.societe || undefined,
+        phone: form.telephone || undefined,
+      })
+      const tokens = await clientApi.auth.login(form.email, password)
+      auth.setTokens(tokens.access, tokens.refresh)
+      router.push('/espace-client/dashboard')
+    } catch (err) {
+      setRegisterError(err instanceof Error ? err.message : 'Erreur lors de la création du compte.')
+    } finally {
+      setRegistering(false)
+    }
+  }
+
+  function resetForm() {
+    setDone(false)
+    setForm(INIT)
+    setStep(1)
+    setPassword('')
+    setPassword2('')
+    setRegisterError('')
+  }
+
   if (done) {
     return (
-      <div className="min-h-[70vh] bg-white flex items-center justify-center px-5">
-        <div className="card border border-gray-100 p-10 max-w-md w-full text-center shadow-sm">
-          <CheckCircle2 size={56} className="text-primary mx-auto mb-5" />
-          <h2 className="font-display text-textdark text-2xl font-bold mb-3">Demande envoyée !</h2>
-          <p className="text-muted font-light mb-6">
-            Votre demande de devis a bien été enregistrée. Notre équipe vous contactera sous 24h à l&apos;adresse{' '}
-            <strong className="text-textdark">{form.email}</strong>.
-          </p>
-          <Button onClick={() => { setDone(false); setForm(INIT); setStep(1) }} variant="secondary">
-            Nouvelle demande
-          </Button>
+      <div className="min-h-[70vh] bg-white flex items-center justify-center px-5 py-12">
+        <div className="max-w-md w-full space-y-5">
+          {/* Confirmation */}
+          <div className="card border border-gray-100 p-8 text-center shadow-sm">
+            <CheckCircle2 size={52} className="text-primary mx-auto mb-4" />
+            <h2 className="font-display text-textdark text-2xl font-bold mb-2">Demande envoyée !</h2>
+            <p className="text-muted font-light text-sm">
+              Votre demande a bien été enregistrée. Notre équipe vous contactera sous 24h à{' '}
+              <strong className="text-textdark">{form.email}</strong>.
+            </p>
+          </div>
+
+          {/* Invitation optionnelle */}
+          <div className="card border border-primary/25 p-8 shadow-sm">
+            <div className="flex items-center gap-2 mb-1">
+              <UserPlus size={18} className="text-primary shrink-0" />
+              <h3 className="font-sans font-semibold text-textdark text-base">Suivez votre dossier en ligne</h3>
+            </div>
+            <p className="text-muted text-sm font-light mb-5">
+              Créez un espace client gratuit pour consulter vos devis, contrats et factures à tout moment.
+            </p>
+            <div className="space-y-4">
+              <Field
+                id="reg-email"
+                type="email"
+                label="Email"
+                value={form.email}
+                onChange={() => {}}
+                readOnly
+                className="bg-gray-50 cursor-default"
+              />
+              <Field
+                id="reg-password"
+                type="password"
+                label="Mot de passe *"
+                placeholder="Au moins 8 caractères"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <Field
+                id="reg-password2"
+                type="password"
+                label="Confirmer le mot de passe *"
+                placeholder="Répétez votre mot de passe"
+                value={password2}
+                onChange={(e) => setPassword2(e.target.value)}
+              />
+              {registerError && <p className="text-danger text-sm">{registerError}</p>}
+              <Button onClick={handleRegister} disabled={registering} className="w-full" size="sm">
+                {registering ? 'Création en cours…' : 'Créer mon compte'}
+              </Button>
+            </div>
+            <div className="text-center mt-4">
+              <button
+                type="button"
+                onClick={resetForm}
+                className="text-sm text-muted hover:text-textdark transition-colors underline-offset-2 hover:underline"
+              >
+                Non merci, continuer sans compte
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     )
