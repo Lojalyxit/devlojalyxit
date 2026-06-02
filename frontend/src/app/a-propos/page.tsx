@@ -135,6 +135,125 @@ export default function AProposPage() {
         </div>
       </section>
 
+      {/* ── Fondateur ─────────────────────────────────────────────────────── */}
+      <section className="bg-bgdark py-16 md:py-24">
+        <div className="container-main">
+
+          {/* En-tête de section */}
+          <div className="text-center mb-14">
+            <p className="font-script text-accent text-3xl mb-3">Parcours</p>
+            <h2 className="font-display text-title text-3xl md:text-4xl font-bold">
+              Le mot du fondateur
+            </h2>
+          </div>
+
+          {/* Layout : photo à gauche (desktop) / en haut (mobile) */}
+          <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start max-w-5xl mx-auto">
+
+            {/* ── Photo + identité ── */}
+            <div className="flex flex-col items-center md:items-start gap-5 shrink-0 w-full md:w-auto">
+
+              {/*
+                EMPLACEMENT PHOTO DU FONDATEUR
+                ──────────────────────────────
+                Quand la photo est disponible, remplacer le bloc ci-dessous par :
+
+                import Image from 'next/image'
+
+                <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden
+                                border-4 border-primary/40 shadow-lg shadow-primary/20">
+                  <Image
+                    src="/images/fondateur.jpg"   ← placer la photo dans /frontend/public/images/
+                    alt="HABA Cece Jérôme — Fondateur LojalyxIT"
+                    fill
+                    className="object-cover object-top"
+                    priority
+                  />
+                </div>
+              */}
+              <div className="w-44 h-44 md:w-52 md:h-52 rounded-full
+                              bg-gradient-to-br from-primary/30 to-primary/10
+                              border-4 border-primary/40 shadow-lg shadow-primary/20
+                              flex items-center justify-center shrink-0">
+                <span className="font-display text-primary text-4xl font-bold select-none tracking-wide">
+                  HCJ
+                </span>
+              </div>
+
+              {/* Identité */}
+              <div className="text-center md:text-left">
+                <p className="font-display text-title text-xl font-bold leading-snug">
+                  HABA Cece Jérôme
+                </p>
+                <p className="text-primary text-sm font-sans font-medium mt-1">
+                  Fondateur &amp; Directeur Général
+                </p>
+                <p className="text-muted text-xs font-light mt-0.5">
+                  DevOps &amp; Systems Engineer
+                </p>
+
+                {/* Séparateur doré */}
+                <div className="w-10 h-0.5 bg-accent mt-4 mx-auto md:mx-0" />
+              </div>
+            </div>
+
+            {/* ── Biographie ── */}
+            <div className="flex-1 space-y-6">
+
+              {/* Paragraphe 1 */}
+              <p className="text-textlight font-light leading-relaxed text-base md:text-lg">
+                DevOps &amp; Systems Engineer, HABA Cece Jérôme cumule plus de douze années
+                d&apos;expérience dans les technologies de l&apos;information, en Guinée comme à
+                l&apos;international. Titulaire d&apos;un Master en Administration Réseaux et Systèmes
+                obtenu à Sup&apos;Info Dakar et d&apos;une Maîtrise en Télécommunications de
+                l&apos;Université Gamal Abdel Nasser de Conakry, il a forgé son expertise au fil de
+                postes stratégiques : Responsable de la Cellule Système du projet FUGAS et Chef de
+                Division Exploitation au Ministère du Travail et de la Fonction Publique, Superviseur
+                Réseaux chez Orange Guinée, Coordinateur IT à la CENI, ou encore Responsable IT chez
+                Likak Research à Dakar.
+              </p>
+
+              {/* Paragraphe 2 */}
+              <p className="text-textlight font-light leading-relaxed text-base md:text-lg">
+                Son parcours se distingue par une rare combinaison de compétences : administration des
+                systèmes Linux et Windows Server, cybersécurité (Fortigate, Palo Alto), cloud computing
+                (AWS), téléphonie IP et supervision réseau, ainsi qu&apos;une maîtrise des pratiques
+                DevOps modernes — conteneurisation Docker, intégration et déploiement continus (CI/CD)
+                et automatisation d&apos;infrastructures. Cette expertise est validée par un portefeuille
+                de certifications internationales reconnues — CCNA, CSCU, RHCSA, MSCA, Python PCEP,
+                Fortigate — auxquelles s&apos;ajoute une formation en cours en Intelligence
+                Artificielle. Professeur d&apos;Administration Réseaux et Systèmes depuis 2018 à
+                l&apos;Université Mercure International et à l&apos;Université Titi Camara, il met
+                également son savoir au service de la formation de la prochaine génération de talents IT
+                guinéens.
+              </p>
+
+              {/* Paragraphe 3 — avec citation mise en valeur */}
+              <p className="text-textlight font-light leading-relaxed text-base md:text-lg">
+                C&apos;est cette double culture — celle du terrain et celle de l&apos;enseignement, de
+                l&apos;administration publique et de l&apos;entreprise — qui fonde la vision de
+                LojalyxIT.
+              </p>
+
+              <blockquote className="border-l-4 border-accent pl-5 py-1">
+                <p className="text-accent font-light italic leading-relaxed text-base md:text-lg">
+                  &laquo;&nbsp;Mon ambition est de mettre la technologie au service de la performance
+                  des organisations guinéennes, avec des solutions fiables, accessibles et alignées sur
+                  les standards internationaux. La confiance se construit par l&apos;expertise, la
+                  rigueur et la transparence à chaque étape.&nbsp;&raquo;
+                </p>
+              </blockquote>
+
+              <p className="text-textlight font-light leading-relaxed text-base md:text-lg">
+                Avec LojalyxIT, HABA Cece Jérôme entend faire de cette conviction le moteur de la
+                transformation digitale en Guinée et en Afrique de l&apos;Ouest.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* ── Fin Fondateur ──────────────────────────────────────────────────── */}
+
       {/* CTA */}
       <section className="bg-primary py-14">
         <div className="container-main text-center">
