@@ -133,15 +133,26 @@ CORS_ALLOWED_ORIGINS = os.environ.get(
     'CORS_ALLOWED_ORIGINS', 'http://localhost:3000'
 ).split(',')
 
-# Email (SMTP port 587 TLS)
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = os.environ.get('EMAIL_HOST', '')
+# ── Email ────────────────────────────────────────────────────────────────────
+# EMAIL_CONSOLE=True  → affiche les emails dans les logs (dev/test)
+# EMAIL_CONSOLE=False → envoi SMTP réel (production)
+_email_console = os.environ.get('EMAIL_CONSOLE', 'True') == 'True'
+EMAIL_BACKEND = (
+    'django.core.mail.backends.console.EmailBackend'
+    if _email_console
+    else 'django.core.mail.backends.smtp.EmailBackend'
+)
+
+EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.zoho.com')
 EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True') == 'True'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
-EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True') == 'True'
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'noreply@lojalyxit.com')
-CEO_EMAIL = os.environ.get('CEO_EMAIL', 'ceo@lojalyxit.com')
+
+# Destinataire des notifications de devis (séparé du compte expéditeur)
+DEVIS_NOTIFICATION_EMAIL = os.environ.get('DEVIS_NOTIFICATION_EMAIL', 'ceo@lojalyxit.com')
+CEO_EMAIL = DEVIS_NOTIFICATION_EMAIL  # alias rétrocompatible
 
 # ── Sécurité production (activée automatiquement si DEBUG=False) ──────────────
 if not DEBUG:
