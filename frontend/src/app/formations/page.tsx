@@ -67,7 +67,7 @@ export default async function FormationsPage() {
           {formations.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {formations.map((f) => (
-                <div key={f.slug} className="card border border-gray-100 p-6 flex flex-col hover:shadow-md transition-shadow duration-200">
+                <div key={f.slug} className="card border-2 border-gray-100 p-6 flex flex-col hover:border-primary hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(42,74,58,0.15)] transition-[border-color,transform,box-shadow] duration-200 ease-out">
                   <div className="flex items-start justify-between gap-2 mb-3">
                     <Badge variant="gold">{f.domaine}</Badge>
                     <Badge variant="muted">{NIVEAU_LABELS[f.niveau]}</Badge>

@@ -82,7 +82,7 @@ export default async function HomePage() {
                 <Link
                   key={s.slug}
                   href={`/services#${s.slug}`}
-                  className="card p-6 group hover:shadow-md transition-shadow duration-200 border border-gray-100"
+                  className="card p-6 group border-2 border-gray-100 hover:border-primary hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(42,74,58,0.15)] transition-[border-color,transform,box-shadow] duration-200 ease-out"
                 >
                   <ServiceIcon
                     name={s.icone}
