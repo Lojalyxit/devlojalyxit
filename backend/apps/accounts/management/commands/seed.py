@@ -612,137 +612,114 @@ FORMATIONS = [
         'duree_heures': 40,
         'niveau': 'debutant',
         'programme': (
-            'Module 1 : Concepts fondamentaux de la programmation et Python (~10 h — 17 % examen)\n'
-            'Module 2 : Contrôle du flux — conditions et boucles (~10 h — 20 % examen)\n'
-            'Module 3 : Structures de données — collections (~12 h — 30 % examen)\n'
-            'Module 4 : Fonctions et exceptions (~8 h — 33 % examen)'
+            "Module 1 — Concepts fondamentaux de la programmation et Python (10 h, 17 % de l'examen)\n"
+            "Module 2 — Contrôle du flux : conditions et boucles (10 h, 20 % de l'examen)\n"
+            "Module 3 — Structures de données : listes, tuples, dictionnaires (12 h, 30 % de l'examen)\n"
+            "Module 4 — Fonctions et exceptions (8 h, 33 % de l'examen)\n\n"
+            "Méthode pédagogique : cours en petit groupe (8 max), 60 % de pratique, "
+            "utilisation de la plateforme officielle EDUBE.org du Python Institute, "
+            "examens blancs hebdomadaires PCEP-30-02.\n\n"
+            "Évaluation : exercices continus, examens blancs, attestation LojalyxIT. "
+            "Accompagnement à l'inscription à l'examen officiel (frais d'examen "
+            "~59 USD non inclus, payés directement à OpenEDG)."
         ),
         'description_longue': (
-            "Première certification Python reconnue mondialement, accessible sans aucun pré-requis. "
-            "En 40 heures, vous maîtrisez les fondamentaux de la programmation Python et préparez "
+            "Première certification Python reconnue mondialement, accessible sans aucun "
+            "pré-requis technique. En 40 heures, vous maîtrisez les fondamentaux de la "
+            "programmation Python — variables, types, opérateurs, contrôle du flux, "
+            "structures de données, fonctions et gestion d'erreurs — et vous préparez "
             "l'examen officiel PCEP-30-02 du Python Institute.\n\n"
-            "OBJECTIFS :\n"
-            "• Comprendre les principes fondamentaux de la programmation et le rôle de Python\n"
-            "• Écrire, exécuter et déboguer vos premiers scripts Python\n"
-            "• Manipuler les types de données natifs et les structures (listes, tuples, dictionnaires)\n"
-            "• Maîtriser les opérateurs, le contrôle du flux, et la modularité (fonctions)\n"
-            "• Gérer les erreurs et exceptions proprement\n"
-            "• Passer et obtenir la certification officielle Python Institute PCEP (PCEP-30-02)\n\n"
-            "PUBLIC VISÉ :\n"
-            "• Personnes débutantes en programmation, sans expérience préalable\n"
-            "• Étudiants souhaitant ajouter une compétence technique reconnue à leur CV\n"
-            "• Professionnels en reconversion vers les métiers du numérique\n"
-            "• Toute personne voulant valider un premier niveau Python avec une certification internationale\n\n"
-            "PRÉ-REQUIS :\n"
-            "Aucun pré-requis technique. Une simple aisance avec un ordinateur suffit.\n\n"
-            "MÉTHODES PÉDAGOGIQUES :\n"
-            "• Cours en présentiel ou en ligne, en petit groupe (8 personnes maximum)\n"
-            "• 60 % de pratique sur poste : exercices guidés, projets courts, mini-applications\n"
-            "• Utilisation de l'environnement officiel EDUBE.org du Python Institute\n"
-            "• Examens blancs PCEP-30-02 hebdomadaires\n"
-            "• Suivi individuel par le formateur, support de cours fourni\n\n"
-            "MODALITÉS D'ÉVALUATION :\n"
-            "• Évaluation continue (exercices, mini-projets)\n"
-            "• Examens blancs PCEP corrigés en groupe\n"
-            "• Examen final blanc en conditions réelles (45 minutes, 30 questions, 70 % requis)\n"
-            "• Attestation de formation LojalyxIT à l'issue\n"
-            "• Accompagnement à l'inscription à l'examen officiel PCEP-30-02\n"
-            "  (coût de l'examen ~59 USD non inclus, payé directement à OpenEDG)\n\n"
-            "CE QUI EST INCLUS :\n"
-            "• 40 heures de cours avec formateur certifié\n"
-            "• Support de cours complet et exercices corrigés\n"
-            "• Accès aux ressources EDUBE.org du Python Institute\n"
-            "• 3 examens blancs PCEP-30-02\n"
-            "• Attestation de formation à l'issue de la session\n"
-            "• Accompagnement à l'inscription à l'examen officiel\n\n"
-            "BÉNÉFICES DE LA CERTIFICATION :\n"
-            "• Première certification Python reconnue à l'international, valable à vie\n"
-            "• Porte d'entrée vers les certifications avancées (PCAP, PCPP1, PCPP2)\n"
-            "• Compétence valorisable pour développement, data, cybersécurité, automatisation\n"
-            "• Tremplin vers les formations LojalyxIT en Data Science et Cybersécurité"
+            "À l'issue de la formation, vous serez capable d'écrire et déboguer vos "
+            "premiers scripts Python, de manipuler listes, tuples et dictionnaires, "
+            "de structurer votre code en fonctions et de gérer les exceptions "
+            "proprement. Vous passerez ensuite l'examen officiel PCEP (Pearson VUE / "
+            "OpenEDG), première certification Python valable à vie et reconnue par "
+            "les recruteurs partout dans le monde.\n\n"
+            "Public visé : débutants en programmation (étudiants, professionnels en "
+            "reconversion, curieux de l'informatique). Aucun pré-requis : une simple "
+            "aisance avec un ordinateur suffit."
         ),
-        'certification': 'Python Institute — PCEP™ (Certified Entry-Level Python Programmer) — PCEP-30-02 — OpenEDG / Pearson VUE',
+        'certification': 'Python Institute — PCEP™ (Certified Entry-Level Python Programmer, examen PCEP-30-02)',
         'tarif_min_gnf': 1000000,
         'tarif_max_gnf': 1800000,
         'modules': [
             {
-                'titre': 'Concepts fondamentaux de la programmation et Python',
+                'titre': 'Concepts fondamentaux de Python',
                 'ordre': 1,
                 'duree_heures': 10,
                 'objectifs': (
-                    "Comprendre ce qu'est la programmation et le rôle des langages\n"
-                    "Distinguer compilation et interprétation ; justifier le choix de Python\n"
-                    "Installer Python et configurer un environnement de travail (IDE)\n"
-                    "Écrire un premier programme avec entrées, sorties et commentaires"
+                    "Comprendre la programmation, installer Python, écrire un "
+                    "premier programme, maîtriser littéraux, opérateurs et variables."
                 ),
                 'contenu': (
-                    "Qu'est-ce que la programmation, qu'est-ce qu'un langage\n"
-                    "Compilation vs interprétation ; pourquoi Python\n"
-                    "Installer Python et son environnement de travail (IDE)\n"
-                    "Premier programme : entrées, sorties, commentaires\n"
-                    "Les littéraux, types numériques et chaînes de caractères\n"
-                    "Opérateurs : arithmétiques, d'affectation, comparaison, logiques, bit à bit\n"
-                    "Priorité et associativité des opérateurs\n"
-                    "Variables, noms réservés, conversions de types"
+                    "- Programmation, langage, compilation vs interprétation\n"
+                    "- Installation Python + IDE\n"
+                    "- Premier programme : entrées, sorties, commentaires\n"
+                    "- Littéraux, types numériques, chaînes\n"
+                    "- Opérateurs : arithmétiques, affectation, comparaison, logiques, bit à bit\n"
+                    "- Priorité et associativité\n"
+                    "- Variables, conversions de types"
                 ),
+                'video_url': None,
+                'video_disponible': False,
             },
             {
-                'titre': 'Contrôle du flux — conditions et boucles',
+                'titre': 'Contrôle du flux : conditions et boucles',
                 'ordre': 2,
                 'duree_heures': 10,
                 'objectifs': (
-                    "Utiliser les instructions conditionnelles if, elif, else\n"
-                    "Contrôler l'exécution répétée avec while et for\n"
-                    "Maîtriser break, continue et la clause else des boucles\n"
-                    "Imbriquer des structures de contrôle pour des logiques complexes"
+                    "Maîtriser if/elif/else, boucles while et for, instructions "
+                    "break/continue, boucles imbriquées."
                 ),
                 'contenu': (
-                    "Instructions conditionnelles : if, elif, else\n"
-                    "Boucles while et for\n"
-                    "Instructions break et continue\n"
-                    "Clause else des boucles\n"
-                    "Boucles imbriquées\n"
-                    "Opérateurs logiques et bit à bit en contexte"
+                    "- Conditions if, elif, else\n"
+                    "- Boucles while et for\n"
+                    "- break, continue\n"
+                    "- Clause else des boucles\n"
+                    "- Boucles imbriquées\n"
+                    "- Opérateurs logiques et bit à bit en contexte"
                 ),
+                'video_url': None,
+                'video_disponible': False,
             },
             {
-                'titre': 'Structures de données — collections',
+                'titre': 'Structures de données : collections',
                 'ordre': 3,
                 'duree_heures': 12,
                 'objectifs': (
-                    "Créer et manipuler des listes, tuples et dictionnaires Python\n"
-                    "Appliquer l'indexation, le slicing et les méthodes de collections\n"
-                    "Manipuler les chaînes de caractères comme des séquences\n"
-                    "Résoudre des cas pratiques : tri, recherche, transformation de données"
+                    "Manipuler listes, tuples, dictionnaires, et comprendre "
+                    "la mutabilité."
                 ),
                 'contenu': (
-                    "Les listes : création, indexation, slicing, méthodes courantes\n"
-                    "Listes multidimensionnelles\n"
-                    "Les tuples et l'immutabilité\n"
-                    "Les dictionnaires : clés, valeurs, parcours\n"
-                    "Manipulation des chaînes comme séquences\n"
-                    "Cas pratiques : tri, recherche, transformation de données"
+                    "- Listes : création, indexation, slicing, méthodes\n"
+                    "- Listes multidimensionnelles\n"
+                    "- Tuples et immutabilité\n"
+                    "- Dictionnaires : clés, valeurs, parcours\n"
+                    "- Chaînes comme séquences\n"
+                    "- Cas pratiques : tri, recherche, transformation"
                 ),
+                'video_url': None,
+                'video_disponible': False,
             },
             {
                 'titre': 'Fonctions et exceptions',
                 'ordre': 4,
                 'duree_heures': 8,
                 'objectifs': (
-                    "Définir et appeler des fonctions avec différents types de paramètres\n"
-                    "Comprendre la portée des variables (locale, globale)\n"
-                    "Gérer proprement les erreurs avec try, except, else, finally\n"
-                    "Connaître la hiérarchie des exceptions intégrées de Python"
+                    "Définir et appeler des fonctions, gérer la portée des "
+                    "variables, gérer les exceptions proprement."
                 ),
                 'contenu': (
-                    "Définir et appeler une fonction\n"
-                    "Paramètres positionnels, par mot-clé, valeurs par défaut\n"
-                    "Portée des variables : locale, globale\n"
-                    "Retour de valeurs, fonctions sans retour\n"
-                    "Récursivité (introduction)\n"
-                    "Gestion d'erreurs : try, except, else, finally\n"
-                    "Hiérarchie des exceptions intégrées"
+                    "- Fonctions : définition, appel, paramètres\n"
+                    "- Paramètres positionnels, mot-clé, valeurs par défaut\n"
+                    "- Portée locale et globale\n"
+                    "- Retour de valeurs, fonctions sans retour\n"
+                    "- Introduction à la récursivité\n"
+                    "- try / except / else / finally\n"
+                    "- Hiérarchie des exceptions intégrées"
                 ),
+                'video_url': None,
+                'video_disponible': False,
             },
         ],
     },
