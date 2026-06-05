@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { ArrowRight, CheckCircle, Shield, Clock, Award, ChevronRight } from 'lucide-react'
 import { getServices } from '@/lib/api'
 import { ServiceIcon } from '@/components/ui/ServiceIcon'
+import ReferencesSection from '@/components/sections/ReferencesSection'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -117,8 +118,11 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* ── Références fondateur ── */}
+      <ReferencesSection />
+
       {/* ── Chiffres clés ── */}
-      <section className="bg-bgdeep py-20">
+      <section className="bg-bgdark py-20">
         <div className="container-main">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
             {CHIFFRES.map(({ value, label }) => (
