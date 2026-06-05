@@ -604,161 +604,194 @@ FORMATIONS = [
         ],
     },
 
-    # ─── 4. Python Data Science ───────────────────────────────────────────────
+    # ─── 4. Python PCEP ───────────────────────────────────────────────────────
     {
         'slug': 'python-data-science',
-        'titre': 'Python pour la Data Science',
+        'titre': 'Python pour les Débutants — Certification PCEP',
         'domaine': 'Développement',
-        'duree_heures': 30,
-        'niveau': 'intermediaire',
+        'duree_heures': 25,
+        'niveau': 'debutant',
         'programme': (
-            'Module 1 : Python avancé pour la data\n'
-            'Module 2 : Manipulation de données avec NumPy\n'
-            'Module 3 : Pandas pour l\'analyse de données\n'
-            'Module 4 : Visualisation de données\n'
-            'Module 5 : Statistiques et probabilités appliquées\n'
-            'Module 6 : Introduction au machine learning\n'
-            'Module 7 : Projet final et préparation examen'
+            'Module 1 : Introduction à Python et à la programmation\n'
+            'Module 2 : Variables, types de données et expressions\n'
+            'Module 3 : Conditions et branchements (if, elif, else)\n'
+            'Module 4 : Boucles while et for\n'
+            'Module 5 : Listes, tuples et dictionnaires\n'
+            'Module 6 : Fonctions et portée des variables\n'
+            'Module 7 : Gestion des exceptions\n'
+            'Module 8 : Préparation et simulation examen PCEP'
         ),
         'description_longue': (
-            "Formation Python orientée Data Science, conforme au programme Python Institute "
-            "(PCAP / PCPP1). De la maîtrise avancée du langage à la manipulation de données "
-            "et l'introduction au machine learning avec scikit-learn. Idéale pour les "
-            "développeurs, analystes et ingénieurs souhaitant évoluer vers les métiers de "
-            "la donnée et de l'intelligence artificielle."
+            "Formation d'initiation à Python conforme au programme officiel PCEP-30-02 "
+            "(Python Certified Entry-Level Programmer) du Python Institute. Idéale pour "
+            "toute personne souhaitant démarrer la programmation Python depuis zéro : "
+            "étudiants, professionnels en reconversion ou curieux de l'informatique. "
+            "À l'issue de la formation, les participants maîtrisent les fondamentaux "
+            "de Python et sont prêts à passer l'examen de certification PCEP-30-02 "
+            "reconnu internationalement par les employeurs."
         ),
-        'certification': 'Python Institute PCAP / PCPP1 (orientation Data Science)',
-        'tarif_min_gnf': 1200000,
-        'tarif_max_gnf': 2000000,
+        'certification': 'Python PCEP — Python Certified Entry-Level Programmer (PCEP-30-02)',
+        'tarif_min_gnf': 800000,
+        'tarif_max_gnf': 1500000,
         'modules': [
             {
-                'titre': 'Python avancé pour la data',
+                'titre': 'Introduction à Python et à la programmation',
                 'ordre': 1,
-                'duree_heures': 5,
+                'duree_heures': 3,
                 'objectifs': (
-                    "Maîtriser les structures avancées et les idiomes Python\n"
-                    "Gérer les environnements virtuels et les dépendances\n"
-                    "Écrire du code Python performant et maintenable"
+                    "Comprendre les concepts fondamentaux de la programmation\n"
+                    "Installer Python et configurer l'environnement de développement\n"
+                    "Écrire et exécuter son premier programme Python"
                 ),
                 'contenu': (
-                    "Types avancés : namedtuple, dataclass, defaultdict, Counter\n"
-                    "Comprehensions : list, dict, set, expressions génératrices\n"
-                    "Générateurs et itérateurs : yield, send, StopIteration\n"
-                    "Décorateurs : @functools.wraps, décorateurs paramétrés\n"
-                    "Gestion des fichiers : pathlib, CSV, JSON, Excel\n"
-                    "Virtualenv et pip : gestion des dépendances, requirements.txt\n"
-                    "Optimisation : profiling, cProfile, line_profiler"
+                    "Qu'est-ce que la programmation ? Langages interprétés vs compilés\n"
+                    "Histoire et philosophie de Python : le Zen de Python\n"
+                    "Installation de Python 3 et configuration de VS Code / IDLE\n"
+                    "L'interpréteur Python : mode interactif et scripts .py\n"
+                    "La fonction print() : affichage de texte et de valeurs\n"
+                    "Littéraux Python : entiers, flottants, chaînes, booléens\n"
+                    "Commentaires en Python : # et bonnes pratiques PEP 8"
                 ),
             },
             {
-                'titre': 'Manipulation de données avec NumPy',
+                'titre': 'Variables, types de données et expressions',
                 'ordre': 2,
                 'duree_heures': 4,
                 'objectifs': (
-                    "Créer et manipuler des arrays NumPy multi-dimensionnels\n"
-                    "Appliquer les opérations vectorisées pour la performance\n"
-                    "Comprendre le broadcasting NumPy"
+                    "Déclarer et utiliser des variables en Python\n"
+                    "Maîtriser les types de données fondamentaux\n"
+                    "Réaliser des opérations arithmétiques, logiques et de comparaison"
                 ),
                 'contenu': (
-                    "Arrays : création, dtype, shape, reshape, flatten\n"
-                    "Indexation et slicing : avancée, masques booléens, fancy indexing\n"
-                    "Broadcasting : règles, cas d'usage, performance\n"
-                    "Opérations vectorisées : ufunc, aggregation, cumul\n"
-                    "Algèbre linéaire : dot, matmul, linalg\n"
-                    "Nombres aléatoires : np.random, seeds, distributions\n"
-                    "Performance : comparaison avec listes Python"
+                    "Variables : affectation, nommage, conventions PEP 8\n"
+                    "Types de données : int, float, str, bool, NoneType\n"
+                    "Conversion de types : int(), float(), str(), bool()\n"
+                    "Opérateurs arithmétiques : +, -, *, /, //, %, **\n"
+                    "Opérateurs de comparaison : ==, !=, <, >, <=, >=\n"
+                    "Opérateurs logiques : and, or, not\n"
+                    "Priorité des opérateurs et parenthèses\n"
+                    "La fonction input() : saisie utilisateur et conversion"
                 ),
             },
             {
-                'titre': "Pandas pour l'analyse de données",
+                'titre': 'Conditions et branchements',
                 'ordre': 3,
-                'duree_heures': 6,
+                'duree_heures': 3,
                 'objectifs': (
-                    "Charger, nettoyer et transformer des datasets avec Pandas\n"
-                    "Réaliser des agrégations et jointures de DataFrames\n"
-                    "Analyser des séries temporelles"
+                    "Utiliser les instructions conditionnelles if, elif, else\n"
+                    "Imbriquer des conditions pour des logiques complexes\n"
+                    "Comprendre les valeurs de vérité (truthy/falsy) en Python"
                 ),
                 'contenu': (
-                    "Series et DataFrame : création, index, colonnes, dtypes\n"
-                    "Chargement de données : CSV, Excel, SQL, JSON, API\n"
-                    "Nettoyage : valeurs manquantes, doublons, outliers\n"
-                    "Transformation : apply, map, vectorisé, str accessor\n"
-                    "Agrégation : groupby, pivot_table, crosstab\n"
-                    "Jointures : merge, join, concat\n"
-                    "Séries temporelles : DatetimeIndex, resample, rolling"
+                    "Valeurs booléennes : True, False et expressions conditionnelles\n"
+                    "Instruction if : syntaxe et indentation obligatoire\n"
+                    "Instructions if-else : deux chemins d'exécution\n"
+                    "Instructions if-elif-else : branchements multiples\n"
+                    "Imbrication de conditions (nested if)\n"
+                    "Opérateur ternaire : valeur if condition else autre_valeur\n"
+                    "Valeurs truthy et falsy : 0, None, chaîne vide\n"
+                    "Opérateurs is, is not, in, not in"
                 ),
             },
             {
-                'titre': 'Visualisation de données',
+                'titre': 'Boucles while et for',
                 'ordre': 4,
                 'duree_heures': 4,
                 'objectifs': (
-                    "Créer des visualisations statiques avec Matplotlib et Seaborn\n"
-                    "Construire des dashboards interactifs avec Plotly\n"
-                    "Choisir le bon type de graphique selon les données"
+                    "Contrôler la répétition avec les boucles while et for\n"
+                    "Utiliser break, continue et la clause else des boucles\n"
+                    "Parcourir des séquences avec range() et enumerate()"
                 ),
                 'contenu': (
-                    "Matplotlib : figures, subplots, styles, annotations\n"
-                    "Seaborn : distributions, corrélations, catégories, pairplot\n"
-                    "Plotly : graphiques interactifs, hover, zoom\n"
-                    "Plotly Dash : dashboards web interactifs\n"
-                    "Bonnes pratiques : lisibilité, couleurs, accessibilité\n"
-                    "Export : PNG haute résolution, SVG, HTML"
+                    "Boucle while : condition d'entrée, boucle infinie, compteurs\n"
+                    "Boucle for : itération sur des séquences\n"
+                    "Fonction range() : range(n), range(start, stop), range(start, stop, step)\n"
+                    "Instruction break : sortie prématurée d'une boucle\n"
+                    "Instruction continue : passer à l'itération suivante\n"
+                    "Clause else sur les boucles : exécution après la boucle\n"
+                    "Boucles imbriquées : tableaux et parcours de matrices\n"
+                    "enumerate() et zip() : parcours avec indices"
                 ),
             },
             {
-                'titre': 'Statistiques et probabilités appliquées',
+                'titre': 'Listes, tuples et dictionnaires',
                 'ordre': 5,
-                'duree_heures': 4,
-                'objectifs': (
-                    "Calculer et interpréter les statistiques descriptives\n"
-                    "Comprendre les distributions et les tests d'hypothèses\n"
-                    "Analyser les corrélations entre variables"
-                ),
-                'contenu': (
-                    "Statistiques descriptives : moyenne, médiane, écart-type, IQR\n"
-                    "Distributions : normale, binomiale, Poisson, t de Student\n"
-                    "Intervalles de confiance : calcul et interprétation\n"
-                    "Tests d'hypothèses : t-test, chi-deux, ANOVA\n"
-                    "Corrélations : Pearson, Spearman, heatmaps\n"
-                    "SciPy.stats : implémentation pratique\n"
-                    "Valeurs aberrantes : détection et traitement"
-                ),
-            },
-            {
-                'titre': 'Introduction au machine learning',
-                'ordre': 6,
                 'duree_heures': 5,
                 'objectifs': (
-                    "Implémenter des algorithmes de régression et classification\n"
-                    "Évaluer les performances d'un modèle ML\n"
-                    "Comprendre le clustering non supervisé"
+                    "Créer et manipuler des listes Python\n"
+                    "Distinguer et utiliser tuples et dictionnaires\n"
+                    "Appliquer le slicing et les méthodes de collections"
                 ),
                 'contenu': (
-                    "Pipeline ML : données, features, entraînement, évaluation\n"
-                    "Régression : linéaire, Ridge, Lasso, métriques MSE/R²\n"
-                    "Classification : KNN, arbre de décision, forêt aléatoire\n"
-                    "Évaluation : validation croisée, matrices de confusion, ROC-AUC\n"
-                    "Clustering : K-Means, DBSCAN, silhouette score\n"
-                    "Scikit-learn : Pipeline, ColumnTransformer, GridSearchCV\n"
-                    "Overfitting : régularisation, validation croisée"
+                    "Listes : création, accès par index, modification\n"
+                    "Indexation positive et négative : liste[0], liste[-1]\n"
+                    "Slicing : liste[start:stop:step]\n"
+                    "Méthodes de listes : append(), insert(), remove(), pop(), sort(), reverse()\n"
+                    "Fonctions len(), min(), max(), sum() sur les listes\n"
+                    "Listes multidimensionnelles : matrices\n"
+                    "Tuples : immuabilité, unpacking, quand les utiliser\n"
+                    "Dictionnaires : paires clé-valeur, accès, modification, itération\n"
+                    "Méthodes de dictionnaire : keys(), values(), items(), get()"
                 ),
             },
             {
-                'titre': 'Projet final et préparation examen',
+                'titre': 'Fonctions et portée des variables',
+                'ordre': 6,
+                'duree_heures': 3,
+                'objectifs': (
+                    "Définir et appeler des fonctions en Python\n"
+                    "Utiliser les paramètres, valeurs par défaut et arguments nommés\n"
+                    "Comprendre la portée des variables (local/global)"
+                ),
+                'contenu': (
+                    "Définition de fonction : def, indentation, docstring\n"
+                    "Paramètres et arguments : passage positionnel et nommé\n"
+                    "Valeurs par défaut des paramètres\n"
+                    "Instruction return : retourner une ou plusieurs valeurs\n"
+                    "Mot-clé None : fonctions sans return explicite\n"
+                    "Portée locale vs globale : règle LEGB\n"
+                    "Mot-clé global : modifier une variable globale depuis une fonction\n"
+                    "Fonctions récursives : concept et cas d'usage simples"
+                ),
+            },
+            {
+                'titre': 'Gestion des exceptions',
                 'ordre': 7,
                 'duree_heures': 2,
                 'objectifs': (
-                    "Réaliser un projet data complet de bout en bout\n"
-                    "Se préparer aux certifications PCAP et PCPP1\n"
-                    "Consolider les acquis via des exercices types"
+                    "Comprendre le mécanisme des exceptions en Python\n"
+                    "Utiliser try-except pour gérer les erreurs proprement\n"
+                    "Identifier les exceptions les plus courantes"
                 ),
                 'contenu': (
-                    "Projet fil rouge : collecte, nettoyage, analyse, visualisation, modèle\n"
-                    "Présentation et documentation du projet\n"
-                    "Exercices type PCAP : syntaxe avancée, OOP, modules\n"
-                    "Exercices type PCPP1 : programmation avancée, networking\n"
-                    "Ressources et communautés pour continuer à apprendre"
+                    "Qu'est-ce qu'une exception ? Erreurs de syntaxe vs exceptions\n"
+                    "Bloc try-except : attraper les erreurs d'exécution\n"
+                    "Exceptions courantes : ValueError, TypeError, ZeroDivisionError, IndexError\n"
+                    "Hiérarchie des exceptions Python\n"
+                    "Clauses except multiples : gérer différents types d'erreurs\n"
+                    "Clause finally : exécution garantie quoi qu'il arrive\n"
+                    "Instruction raise : déclencher une exception manuellement\n"
+                    "Bonnes pratiques de gestion d'erreurs"
+                ),
+            },
+            {
+                'titre': 'Préparation et simulation examen PCEP',
+                'ordre': 8,
+                'duree_heures': 1,
+                'objectifs': (
+                    "Réviser les 4 domaines de l'examen PCEP-30-02\n"
+                    "Pratiquer sur des questions types de l'examen\n"
+                    "Maîtriser la stratégie de passage de l'examen Python Institute"
+                ),
+                'contenu': (
+                    "Domaine 1 : Fondamentaux Python (18%) — révision complète\n"
+                    "Domaine 2 : Flux de contrôle (29%) — exercices ciblés\n"
+                    "Domaine 3 : Collections de données (25%) — exercices ciblés\n"
+                    "Domaine 4 : Fonctions et exceptions (28%) — exercices ciblés\n"
+                    "Simulations d'examen : 30 questions, 45 minutes, score minimum 70%\n"
+                    "Analyse des erreurs fréquentes et pièges courants\n"
+                    "Plateforme OpenEDG : inscription, format, obtention du certificat\n"
+                    "Ressources officielles Python Institute pour progresser après PCEP"
                 ),
             },
         ],
