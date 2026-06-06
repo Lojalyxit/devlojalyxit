@@ -26,8 +26,8 @@ export async function getServices(): Promise<Service[]> {
 export async function getFormations(): Promise<FormationListItem[]> {
   try {
     const data = await apiFetch<PaginatedResponse<FormationListItem>>('/formations/', {
-      next: { revalidate: 3600 },
-    } as any)
+      cache: 'no-store',
+    })
     return data.results
   } catch {
     return []
