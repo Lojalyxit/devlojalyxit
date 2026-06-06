@@ -905,7 +905,176 @@ FORMATIONS = [
         ],
     },
 
-    # ─── 6. Cybersécurité Fondamentaux ────────────────────────────────────────
+    # ─── 6. Linux RHCSA ──────────────────────────────────────────────────────
+    {
+        'slug': 'linux-rhcsa-rh124',
+        'titre': 'Linux Administration — Red Hat System Administration I (RH124, RHEL 8.2)',
+        'domaine': 'Systèmes',
+        'duree_heures': 35,
+        'niveau': 'intermediaire',
+        'programme': (
+            "Module 1 — Prise en main de la ligne de commande\n"
+            "Module 2 — Gestion des fichiers depuis la ligne de commande\n"
+            "Module 3 — Aide et documentation, édition de fichiers texte\n"
+            "Module 4 — Gestion des utilisateurs et des groupes\n"
+            "Module 5 — Permissions et contrôle d'accès\n"
+            "Module 6 — Processus et services systemd\n"
+            "Module 7 — Réseau et journalisation\n"
+            "Module 8 — Stockage, installation de logiciels et préparation RHCSA"
+        ),
+        'description_longue': (
+            "Formation d'administration système Linux basée sur le cursus officiel Red Hat "
+            "RH124 (Red Hat System Administration I, RHEL 8.2). Elle pose les bases pour "
+            "administrer un serveur Red Hat Enterprise Linux : ligne de commande, gestion "
+            "des fichiers et des utilisateurs, permissions, processus, services systemd, "
+            "réseau, stockage, et premières notions de sécurité. Première étape vers la "
+            "certification RHCSA (EX200). Destinée aux administrateurs systèmes débutants/"
+            "intermédiaires, techniciens support et professionnels IT souhaitant maîtriser "
+            "Linux en environnement professionnel."
+        ),
+        'certification': 'Préparation RHCSA (EX200) — basée sur le cursus Red Hat RH124, RHEL 8.2',
+        'tarif_min_gnf': 1000000,
+        'tarif_max_gnf': 1800000,
+        'modules': [
+            {
+                'titre': 'Prise en main de la ligne de commande',
+                'ordre': 1,
+                'duree_heures': 3,
+                'objectifs': (
+                    "Se connecter au système, exécuter des commandes de base, "
+                    "obtenir de l'aide."
+                ),
+                'contenu': (
+                    "Shell Bash, syntaxe des commandes\n"
+                    "Navigation dans l'arborescence\n"
+                    "Commandes : pwd, ls, cd\n"
+                    "Aide : man, --help, info"
+                ),
+                'video_url': None,
+                'video_disponible': False,
+            },
+            {
+                'titre': 'Gestion des fichiers depuis la ligne de commande',
+                'ordre': 2,
+                'duree_heures': 4,
+                'objectifs': (
+                    "Créer, copier, déplacer, supprimer fichiers et répertoires ; "
+                    "utiliser les liens."
+                ),
+                'contenu': (
+                    "Arborescence FHS\n"
+                    "Chemins absolus et relatifs\n"
+                    "Commandes : cp, mv, rm, mkdir\n"
+                    "Métacaractères (globbing)\n"
+                    "Liens durs et symboliques"
+                ),
+                'video_url': None,
+                'video_disponible': False,
+            },
+            {
+                'titre': 'Aide et documentation, édition de fichiers texte',
+                'ordre': 3,
+                'duree_heures': 4,
+                'objectifs': (
+                    "Trouver de l'aide, éditer des fichiers avec Vim."
+                ),
+                'contenu': (
+                    "Pages de manuel (man)\n"
+                    "Documentation dans /usr/share/doc\n"
+                    "Éditeur Vim : modes, commandes essentielles\n"
+                    "Redirections et tubes (pipes)"
+                ),
+                'video_url': None,
+                'video_disponible': False,
+            },
+            {
+                'titre': 'Gestion des utilisateurs et des groupes',
+                'ordre': 4,
+                'duree_heures': 4,
+                'objectifs': (
+                    "Créer et gérer comptes utilisateurs et groupes, mots de passe."
+                ),
+                'contenu': (
+                    "Commandes : useradd, usermod, userdel, groupadd\n"
+                    "Fichiers : /etc/passwd, /etc/shadow, /etc/group\n"
+                    "Gestion des mots de passe : passwd, chage\n"
+                    "sudo et délégation de privilèges"
+                ),
+                'video_url': None,
+                'video_disponible': False,
+            },
+            {
+                'titre': "Permissions et contrôle d'accès",
+                'ordre': 5,
+                'duree_heures': 5,
+                'objectifs': (
+                    "Gérer les permissions de fichiers et la sécurité d'accès."
+                ),
+                'contenu': (
+                    "Permissions rwx : lecture, écriture, exécution\n"
+                    "chmod en mode symbolique et octal\n"
+                    "chown et chgrp\n"
+                    "Permissions par défaut (umask)\n"
+                    "Permissions spéciales : SUID, SGID, sticky bit"
+                ),
+                'video_url': None,
+                'video_disponible': False,
+            },
+            {
+                'titre': 'Processus et services systemd',
+                'ordre': 6,
+                'duree_heures': 5,
+                'objectifs': (
+                    "Surveiller et contrôler processus et services."
+                ),
+                'contenu': (
+                    "Surveillance des processus : ps, top\n"
+                    "Gestion des signaux : kill et variantes\n"
+                    "Priorités : nice et renice\n"
+                    "systemd et systemctl : start, stop, enable, status\n"
+                    "Cibles (targets) systemd"
+                ),
+                'video_url': None,
+                'video_disponible': False,
+            },
+            {
+                'titre': 'Réseau et journalisation',
+                'ordre': 7,
+                'duree_heures': 5,
+                'objectifs': (
+                    "Configurer le réseau et consulter les journaux système."
+                ),
+                'contenu': (
+                    "Configuration IP avec nmcli\n"
+                    "Hostname et résolution DNS\n"
+                    "Journaux système : journalctl, rsyslog\n"
+                    "Synchronisation horaire avec chrony"
+                ),
+                'video_url': None,
+                'video_disponible': False,
+            },
+            {
+                'titre': 'Stockage, installation de logiciels et préparation RHCSA',
+                'ordre': 8,
+                'duree_heures': 5,
+                'objectifs': (
+                    "Gérer le stockage de base, installer des logiciels, "
+                    "réviser en vue de l'examen RHCSA."
+                ),
+                'contenu': (
+                    "Partitions et systèmes de fichiers\n"
+                    "Montage : mount et /etc/fstab\n"
+                    "Gestion de paquets : dnf/yum, dépôts\n"
+                    "Archives : tar\n"
+                    "Révision et exercices type RHCSA"
+                ),
+                'video_url': None,
+                'video_disponible': False,
+            },
+        ],
+    },
+
+    # ─── 7. Cybersécurité Fondamentaux ────────────────────────────────────────
     {
         'slug': 'cybersecurite-fondamentaux',
         'titre': 'Cybersécurité — Fondamentaux',
@@ -1086,7 +1255,7 @@ FORMATIONS = [
         ],
     },
 
-    # ─── 7. Firewall FortiGate ────────────────────────────────────────────────
+    # ─── 8. Firewall FortiGate ────────────────────────────────────────────────
     {
         'slug': 'firewall-fortigate',
         'titre': 'Firewall FortiGate — Administration et sécurité',
