@@ -11,7 +11,7 @@ const INFOS = [
   {
     icon: MapPin,
     titre: 'Adresse',
-    lines: ['Conakry, République de Guinée'],
+    lines: ['Almamy, Kaloum', 'Conakry, République de Guinée'],
   },
   {
     icon: Mail,
@@ -79,12 +79,18 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              {/* Carte placeholder */}
-              <div className="mt-10 rounded-card overflow-hidden bg-gray-100 h-56 flex items-center justify-center border border-gray-200">
-                <div className="text-center text-muted">
-                  <MapPin size={32} className="mx-auto mb-2 text-primary/40" />
-                  <p className="text-sm font-light">Conakry, République de Guinée</p>
-                </div>
+              {/* Carte Google Maps */}
+              <div className="mt-10 rounded-card overflow-hidden border border-gray-200 h-56">
+                <iframe
+                  src="https://maps.google.com/maps?q=Almamy+Kaloum+Conakry+Guin%C3%A9e&output=embed&z=15&hl=fr"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="LojalyxIT — Almamy, Kaloum, Conakry"
+                />
               </div>
             </div>
           </div>
