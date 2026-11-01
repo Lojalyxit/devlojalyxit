@@ -16,6 +16,8 @@ export interface FormationListItem {
   niveau: 'debutant' | 'intermediaire' | 'avance' | 'tous'
   tarif_min_gnf: string
   tarif_max_gnf: string
+  /** Éditeur de la certification officielle (null = pas de certification d'éditeur) */
+  organisme_certification: string | null
 }
 
 export interface Session {

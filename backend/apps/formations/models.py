@@ -17,6 +17,14 @@ class Formation(models.Model):
     programme = models.TextField(blank=True)
     description_longue = models.TextField(blank=True)
     certification = models.CharField(max_length=200, blank=True)
+    organisme_certification = models.CharField(
+        "Organisme de certification", max_length=120, blank=True, null=True,
+        help_text=(
+            "Éditeur qui délivre la certification officielle (ex. Cisco, EC-Council, Red Hat). "
+            "Si renseigné, la fiche affiche la mention « attestation LojalyxIT vs certification "
+            "officielle ». Laisser vide pour une formation sans certification d'éditeur."
+        ),
+    )
     tarif_min_gnf = models.DecimalField(max_digits=15, decimal_places=0)
     tarif_max_gnf = models.DecimalField(max_digits=15, decimal_places=0)
 

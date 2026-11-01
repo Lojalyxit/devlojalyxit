@@ -7,6 +7,7 @@ import {
 import { getFormation, getFormations } from '@/lib/api'
 import { Badge } from '@/components/ui/Badge'
 import { VideoPlayer } from '@/components/ui/VideoPlayer'
+import { MentionCertification } from '@/components/formations/MentionCertification'
 import { formatGNF, formatDate } from '@/lib/utils'
 import type { Metadata } from 'next'
 
@@ -89,6 +90,8 @@ export default async function FormationDetailPage({ params }: Props) {
               </span>
             </div>
           )}
+
+          <MentionCertification organisme={formation.organisme_certification} className="mb-8 max-w-3xl" />
 
           <div className="flex flex-wrap gap-6 text-textlight text-sm mb-8">
             <span className="flex items-center gap-2">

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Clock, BarChart2, ArrowRight } from 'lucide-react'
+import { Clock, BarChart2, ArrowRight, Award } from 'lucide-react'
 import { getFormations } from '@/lib/api'
 import { Badge } from '@/components/ui/Badge'
 import { formatGNF } from '@/lib/utils'
@@ -60,9 +60,16 @@ export default async function FormationsPage() {
       {/* Grille formations */}
       <section className="bg-white py-16 md:py-20">
         <div className="container-main">
-          <h2 className="font-display text-textdark text-3xl font-bold mb-10 text-center">
+          <h2 className="font-display text-textdark text-3xl font-bold mb-6 text-center">
             Catalogue des formations
           </h2>
+          <p className="max-w-3xl mx-auto mb-10 text-center text-sm text-gray-600 leading-relaxed">
+            Nos formations certifiantes préparent aux examens officiels des éditeurs (Cisco, EC-Council,
+            Red Hat, Fortinet, AWS…). À l&apos;issue de chaque formation, LojalyxIT délivre une{' '}
+            <strong className="text-textdark">attestation de formation</strong> ; la certification
+            officielle s&apos;obtient en passant l&apos;examen auprès de l&apos;éditeur ou d&apos;un centre
+            agréé (frais d&apos;examen non inclus sauf mention contraire).
+          </p>
 
           {formations.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -75,6 +82,12 @@ export default async function FormationsPage() {
                   <h3 className="font-sans font-semibold text-textdark text-base mb-3 leading-snug flex-1">
                     {f.titre}
                   </h3>
+                  {f.organisme_certification && (
+                    <p className="flex items-center gap-1.5 text-xs text-gray-600 mb-3">
+                      <Award size={14} className="text-accent shrink-0" />
+                      Prépare à la certification officielle {f.organisme_certification}
+                    </p>
+                  )}
                   <div className="flex items-center gap-4 text-muted text-sm mb-4">
                     <span className="flex items-center gap-1">
                       <Clock size={14} /> {f.duree_heures}h

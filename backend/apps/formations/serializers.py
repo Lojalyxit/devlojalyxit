@@ -33,7 +33,10 @@ class FormationSerializer(serializers.ModelSerializer):
 class FormationListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Formation
-        fields = ('id', 'slug', 'titre', 'domaine', 'duree_heures', 'niveau', 'tarif_min_gnf', 'tarif_max_gnf')
+        fields = (
+            'id', 'slug', 'titre', 'domaine', 'duree_heures', 'niveau', 'tarif_min_gnf', 'tarif_max_gnf',
+            'organisme_certification',
+        )
 
 
 class InscriptionSerializer(serializers.ModelSerializer):

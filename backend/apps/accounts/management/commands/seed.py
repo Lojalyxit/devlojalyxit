@@ -128,6 +128,7 @@ FORMATIONS = [
             "d'entreprise de taille moyenne et de passer l'examen Cisco 200-301 CCNA."
         ),
         'certification': 'Cisco 200-301 CCNA (officielle)',
+        'organisme_certification': 'Cisco',
         'tarif_min_gnf': 1500000,
         'tarif_max_gnf': 2500000,
         'modules': [
@@ -285,6 +286,7 @@ FORMATIONS = [
             "ou expérience équivalente."
         ),
         'certification': 'Cisco CCNP Enterprise (ENCOR 350-401 + ENARSI 300-410)',
+        'organisme_certification': 'Cisco',
         'tarif_min_gnf': 2500000,
         'tarif_max_gnf': 4000000,
         'modules': [
@@ -449,6 +451,7 @@ FORMATIONS = [
             "reconnue mondialement par les RSSI, DSI et équipes Blue/Red Team."
         ),
         'certification': 'EC-Council CEH v13 (Certified Ethical Hacker)',
+        'organisme_certification': 'EC-Council',
         'tarif_min_gnf': 2000000,
         'tarif_max_gnf': 3500000,
         'modules': [
@@ -660,6 +663,7 @@ FORMATIONS = [
             "aisance avec un ordinateur suffit."
         ),
         'certification': 'Python Institute — PCEP™ (Certified Entry-Level Python Programmer, examen PCEP-30-02)',
+        'organisme_certification': 'Python Institute (OpenEDG)',
         'tarif_min_gnf': 1000000,
         'tarif_max_gnf': 1800000,
         'modules': [
@@ -770,6 +774,7 @@ FORMATIONS = [
             "Microsoft AZ-800."
         ),
         'certification': 'Microsoft AZ-800 — Administering Windows Server Hybrid Core Infrastructure',
+        'organisme_certification': 'Microsoft',
         'tarif_min_gnf': 1400000,
         'tarif_max_gnf': 2200000,
         'modules': [
@@ -953,6 +958,7 @@ FORMATIONS = [
             "Linux en environnement professionnel."
         ),
         'certification': 'Préparation RHCSA (EX200) — basée sur le cursus Red Hat RH124, RHEL 8.2',
+        'organisme_certification': 'Red Hat',
         'tarif_min_gnf': 1000000,
         'tarif_max_gnf': 1800000,
         'modules': [
@@ -1120,6 +1126,7 @@ FORMATIONS = [
             "d'information."
         ),
         'certification': 'CompTIA Security+ SY0-701 ou EC-Council CSCU',
+        'organisme_certification': 'CompTIA ou EC-Council',
         'tarif_min_gnf': 800000,
         'tarif_max_gnf': 1500000,
         'modules': [
@@ -1303,6 +1310,7 @@ FORMATIONS = [
             "NSE 4 FortiGate Security et FortiGate Infrastructure."
         ),
         'certification': 'Fortinet NSE 4 — Network Security Professional (FortiGate Security + FortiGate Infrastructure)',
+        'organisme_certification': 'Fortinet',
         'tarif_min_gnf': 1800000,
         'tarif_max_gnf': 3000000,
         'modules': [
@@ -1519,6 +1527,7 @@ FORMATIONS = [
             "et les services AWS. Prépare à la certification AWS Solutions Architect Associate."
         ),
         'certification': 'AWS Solutions Architect Associate (SAA-C03)',
+        'organisme_certification': 'Amazon Web Services (AWS)',
         'tarif_min_gnf': 2500000,
         'tarif_max_gnf': 4500000,
         'modules': [

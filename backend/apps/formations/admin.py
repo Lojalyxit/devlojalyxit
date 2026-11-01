@@ -17,7 +17,7 @@ class SessionInline(admin.TabularInline):
 
 @admin.register(Formation)
 class FormationAdmin(admin.ModelAdmin):
-    list_display = ('titre', 'domaine', 'niveau', 'duree_heures', 'certification', 'tarif_min_gnf', 'tarif_max_gnf')
+    list_display = ('titre', 'domaine', 'niveau', 'duree_heures', 'certification', 'organisme_certification', 'tarif_min_gnf', 'tarif_max_gnf')
     list_filter = ('domaine', 'niveau')
     search_fields = ('titre', 'domaine', 'certification')
     prepopulated_fields = {'slug': ('titre',)}
