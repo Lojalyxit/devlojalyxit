@@ -1,6 +1,9 @@
 import Link from 'next/link'
 import { MapPin, Phone, Mail } from 'lucide-react'
 import { Logo } from '@/components/ui/Logo'
+import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
+import { EMAIL_PUBLIC, TELEPHONE_AFFICHE, TELEPHONE_HREF } from '@/lib/site'
 
 const SERVICES_LINKS = [
   { href: '/services#serveurs-cloud', label: 'Serveurs & Cloud' },
@@ -78,13 +81,21 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2 text-sm">
                 <Mail size={16} className="text-brand-green-light shrink-0" />
-                <a href="mailto:ceo@lojalyxit.com" className="hover:text-brand-green-light transition-colors">
-                  ceo@lojalyxit.com
+                <a href={`mailto:${EMAIL_PUBLIC}`} className="hover:text-brand-green-light transition-colors">
+                  {EMAIL_PUBLIC}
                 </a>
               </li>
               <li className="flex items-center gap-2 text-sm">
                 <Phone size={16} className="text-brand-green-light shrink-0" />
-                <span>+224 622 36 54 20</span>
+                <a href={TELEPHONE_HREF} className="hover:text-brand-green-light transition-colors">
+                  {TELEPHONE_AFFICHE}
+                </a>
+              </li>
+              <li className="flex items-center gap-2 text-sm">
+                <WhatsAppIcon size={16} className="text-brand-green-light shrink-0" />
+                <WhatsAppLink contexte="footer" className="hover:text-brand-green-light transition-colors">
+                  WhatsApp
+                </WhatsAppLink>
               </li>
             </ul>
             <div className="mt-6">

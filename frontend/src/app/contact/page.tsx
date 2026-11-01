@@ -1,32 +1,35 @@
 import type { Metadata } from 'next'
 import { ContactForm } from './ContactForm'
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
+import { EMAIL_PUBLIC, TELEPHONE_AFFICHE, TELEPHONE_HREF } from '@/lib/site'
+import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Contactez LojalyxIT à Conakry. Formulaire en ligne, email ou téléphone — nous répondons sous 24h.',
+  description: 'Contactez LojalyxIT à Conakry. Formulaire en ligne, WhatsApp, email ou téléphone — nous répondons sous 24h.',
 }
 
-const INFOS = [
+const INFOS: { icon: typeof MapPin; titre: string; lines: { texte: string; href?: string }[] }[] = [
   {
     icon: MapPin,
     titre: 'Adresse',
-    lines: ['Almamy, Kaloum', 'Conakry, République de Guinée'],
+    lines: [{ texte: 'Almamy, Kaloum' }, { texte: 'Conakry, République de Guinée' }],
   },
   {
     icon: Mail,
     titre: 'Email',
-    lines: ['ceo@lojalyxit.com'],
+    lines: [{ texte: EMAIL_PUBLIC, href: `mailto:${EMAIL_PUBLIC}` }],
   },
   {
     icon: Phone,
     titre: 'Téléphone',
-    lines: ['+224 622 36 54 20'],
+    lines: [{ texte: TELEPHONE_AFFICHE, href: TELEPHONE_HREF }],
   },
   {
     icon: Clock,
     titre: 'Disponibilité',
-    lines: ['Lun — Ven : 8h00 — 18h00', 'Support 7J/7'],
+    lines: [{ texte: 'Lun — Ven : 8h00 — 18h00' }, { texte: 'Support 7J/7' }],
   },
 ]
 
@@ -71,13 +74,31 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="font-sans font-semibold text-textdark text-sm mb-1">{titre}</p>
-                      {lines.map((line) => (
-                        <p key={line} className="text-gray-600 text-sm">{line}</p>
-                      ))}
+                      {lines.map(({ texte, href }) =>
+                        href ? (
+                          <a
+                            key={texte}
+                            href={href}
+                            className="block text-gray-600 text-sm hover:text-primary underline-offset-2 hover:underline"
+                          >
+                            {texte}
+                          </a>
+                        ) : (
+                          <p key={texte} className="text-gray-600 text-sm">{texte}</p>
+                        ),
+                      )}
                     </div>
                   </div>
                 ))}
               </div>
+
+              <WhatsAppLink
+                contexte="page contact"
+                className="mt-8 inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-btn
+                  bg-[#25D366] hover:bg-[#1EBE5A] text-white font-sans font-medium px-6 py-3 transition-colors duration-200"
+              >
+                <WhatsAppIcon size={20} /> Écrire sur WhatsApp
+              </WhatsAppLink>
 
               {/* Carte Google Maps */}
               <div className="mt-10 rounded-card overflow-hidden border border-gray-200 h-56">

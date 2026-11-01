@@ -364,7 +364,7 @@ export default function DevisPage() {
           )}
 
           {/* Navigation */}
-          <div className="flex justify-between mt-8 pt-6 border-t border-gray-100">
+          <div className="flex justify-between mt-8 pt-6 border-t border-gray-100" data-hide-whatsapp-float>
             <Button
               variant="secondary"
               onClick={() => setStep((s) => Math.max(1, s - 1) as 1 | 2 | 3 | 4)}

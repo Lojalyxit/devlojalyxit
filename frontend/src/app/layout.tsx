@@ -4,6 +4,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { AuthProvider } from '@/contexts/AuthContext'
 import { NavigationProgress } from '@/components/ui/NavigationProgress'
+import { WhatsAppFloat } from '@/components/layout/WhatsAppFloat'
 import { SLOGAN, SITE_URL } from '@/lib/site'
 import './globals.css'
 
@@ -70,6 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <WhatsAppFloat />
         </AuthProvider>
       </body>
     </html>

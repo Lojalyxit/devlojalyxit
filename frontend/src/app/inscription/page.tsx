@@ -143,7 +143,7 @@ function InscriptionContent() {
           une fois le paiement confirmé.
         </div>
 
-        <Button onClick={handleSubmit} disabled={submitting} className="w-full justify-center">
+        <Button onClick={handleSubmit} disabled={submitting} className="w-full justify-center" data-hide-whatsapp-float>
           {submitting ? 'Enregistrement…' : 'Confirmer l\'inscription'}
         </Button>
       </div>

@@ -121,7 +121,7 @@ export function ContactForm() {
         </div>
       )}
 
-      <Button type="submit" disabled={status === 'loading'} className="w-full sm:w-auto">
+      <Button type="submit" disabled={status === 'loading'} className="w-full sm:w-auto" data-hide-whatsapp-float>
         {status === 'loading' ? 'Envoi en cours…' : <>Envoyer le message <Send size={16} /></>}
       </Button>
     </form>

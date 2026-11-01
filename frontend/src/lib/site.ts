@@ -9,3 +9,27 @@ export const SLOGAN_LIGNE_2 = 'digital futures.'
 
 export const SITE_URL = 'https://lojalyxit.com'
 export const NOM_SOCIETE = 'LojalyxIT SARL'
+
+// ── Coordonnées ─────────────────────────────────────────────────────────────
+
+export const TELEPHONE_AFFICHE = '+224 622 36 54 20'
+export const TELEPHONE_E164 = '+224622365420'
+export const TELEPHONE_HREF = `tel:${TELEPHONE_E164}`
+
+/**
+ * Email public affiché sur le site (page Contact, footer, données structurées).
+ * Pour basculer vers contact@lojalyxit.com : définir NEXT_PUBLIC_CONTACT_EMAIL
+ * (ou changer la valeur par défaut ci-dessous) puis rebuild le frontend.
+ */
+export const EMAIL_PUBLIC = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'ceo@lojalyxit.com'
+
+// ── WhatsApp ────────────────────────────────────────────────────────────────
+
+export const WHATSAPP_NUMERO = '224622365420'
+export const WHATSAPP_MESSAGE_DEFAUT =
+  'Bonjour LojalyxIT, je souhaite avoir des informations sur vos services.'
+
+/** Lien wa.me avec message prérempli. */
+export function lienWhatsApp(message: string = WHATSAPP_MESSAGE_DEFAUT): string {
+  return `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(message)}`
+}
