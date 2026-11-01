@@ -6,6 +6,7 @@ import { AuthProvider } from '@/contexts/AuthContext'
 import { NavigationProgress } from '@/components/ui/NavigationProgress'
 import { WhatsAppFloat } from '@/components/layout/WhatsAppFloat'
 import { LocalBusinessJsonLd } from '@/components/seo/LocalBusinessJsonLd'
+import { MetaPixel } from '@/components/seo/MetaPixel'
 import { SLOGAN, SITE_URL } from '@/lib/site'
 import './globals.css'
 
@@ -68,6 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <body className="font-sans antialiased flex flex-col min-h-screen">
         <LocalBusinessJsonLd />
+        <MetaPixel />
         <AuthProvider>
           <NavigationProgress />
           <Header />

@@ -118,6 +118,21 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 20,
+    # Limitation de débit (anti-spam) du formulaire de contact, par adresse IP
+    'DEFAULT_THROTTLE_RATES': {
+        'contact': os.environ.get('CONTACT_THROTTLE_RATE', '5/hour'),
+    },
+    # Derrière Nginx : l'IP réelle du visiteur est lue dans X-Forwarded-For
+    'NUM_PROXIES': int(os.environ.get('DRF_NUM_PROXIES', '1')),
+}
+
+# Cache partagé entre les workers gunicorn (nécessaire pour que la limitation de débit
+# soit globale et non par worker). Fichiers dans /tmp du conteneur : aucune migration requise.
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': os.environ.get('DJANGO_CACHE_DIR', '/tmp/django_cache'),
+    }
 }
 
 # JWT

@@ -2,11 +2,13 @@ import logging
 from django.conf import settings
 from django.core.mail import EmailMessage
 from django.utils import timezone
-from rest_framework import generics, permissions, viewsets
+from rest_framework import generics, permissions, status, viewsets
+from rest_framework.response import Response
+from rest_framework.throttling import ScopedRateThrottle
 
 from apps.accounts.permissions import IsAdminRole
-from .models import Devis
-from .serializers import DevisCreateSerializer, DevisSerializer
+from .models import Devis, MessageContact
+from .serializers import DevisCreateSerializer, DevisSerializer, MessageContactSerializer
 
 logger = logging.getLogger(__name__)
 
@@ -110,3 +112,70 @@ def _envoyer_notification_devis(devis: Devis) -> None:
             devis.pk, settings.DEVIS_NOTIFICATION_EMAIL, exc,
             exc_info=True,
         )
+
+
+# ── Formulaire de contact ────────────────────────────────────────────────────
+
+class MessageContactCreateView(generics.CreateAPIView):
+    """
+    POST /api/contact/ — formulaire de la page Contact (public).
+    Anti-spam : champ piège « site_web » + limitation de débit (scope « contact »).
+    """
+    serializer_class = MessageContactSerializer
+    permission_classes = [permissions.AllowAny]
+    authentication_classes = []
+    throttle_classes = [ScopedRateThrottle]
+    throttle_scope = 'contact'
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        # Robot détecté : on répond comme si tout allait bien, sans rien enregistrer ni envoyer
+        if serializer.validated_data.pop('site_web', ''):
+            logger.warning('Message de contact ignoré (honeypot rempli) depuis %s', request.META.get('REMOTE_ADDR'))
+            return Response({'ok': True}, status=status.HTTP_201_CREATED)
+
+        message = serializer.save()
+        message.email_envoye = _envoyer_notification_contact(message)
+        message.save(update_fields=['email_envoye'])
+        return Response({'ok': True, 'id': message.pk}, status=status.HTTP_201_CREATED)
+
+
+def _envoyer_notification_contact(message: MessageContact) -> bool:
+    """Notifie l'équipe par email. Ne lève jamais d'exception ; retourne True si l'envoi a réussi."""
+    try:
+        date_fr = timezone.localtime(message.created_at).strftime('%d/%m/%Y à %H:%M')
+        separateur = '=' * 60
+        corps = '\n'.join([
+            f'Nouveau message reçu depuis le formulaire de contact le {date_fr}.',
+            separateur,
+            '',
+            f'  Nom        : {message.nom}',
+            f'  Email      : {message.email}',
+            f'  Téléphone  : {message.telephone or "—"}',
+            f'  Sujet      : {message.sujet}',
+            f'  Formation  : {message.formation or "—"}',
+            '',
+            'MESSAGE',
+            message.message,
+            '',
+            separateur,
+            'Répondez directement à cet email pour écrire au client.',
+            f'Historique : admin Django > Devis > Messages de contact (#{message.pk}).',
+            '',
+            '-- LojalyxIT (notification automatique)',
+        ])
+        EmailMessage(
+            subject=f'[LojalyxIT] Contact ({message.sujet}) — {message.nom}',
+            body=corps,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=[settings.DEVIS_NOTIFICATION_EMAIL],
+            reply_to=[message.email],
+        ).send(fail_silently=False)
+        logger.info('Email contact #%s envoyé à %s', message.pk, settings.DEVIS_NOTIFICATION_EMAIL)
+        return True
+    except Exception as exc:
+        # Le message reste enregistré en base même si l'email échoue
+        logger.error('Échec envoi email contact #%s : %s', message.pk, exc, exc_info=True)
+        return False

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import Devis, DevisService
+from .models import Devis, DevisService, MessageContact
 
 
 def make_statut_action(statut, label):
@@ -46,3 +46,17 @@ class DevisAdmin(admin.ModelAdmin):
             '<span style="background:{};color:#fff;padding:2px 8px;border-radius:4px;font-size:11px">{}</span>',
             color, obj.statut
         )
+
+
+@admin.register(MessageContact)
+class MessageContactAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'nom', 'email', 'telephone', 'sujet', 'formation', 'traite', 'email_envoye', 'created_at')
+    list_filter = ('traite', 'sujet', 'email_envoye', 'created_at')
+    search_fields = ('nom', 'email', 'telephone', 'message')
+    list_editable = ('traite',)
+    date_hierarchy = 'created_at'
+    readonly_fields = ('nom', 'email', 'telephone', 'sujet', 'formation', 'message', 'email_envoye', 'created_at')
+    ordering = ('-created_at',)
+
+    def has_add_permission(self, request):
+        return False

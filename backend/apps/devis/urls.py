@@ -1,12 +1,13 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import DevisCreateView, DevisListView, DevisAdminViewSet
+from .views import DevisCreateView, DevisListView, DevisAdminViewSet, MessageContactCreateView
 
 router = DefaultRouter()
 router.register('admin/devis', DevisAdminViewSet, basename='admin-devis')
 
 urlpatterns = [
     path('devis/', DevisCreateView.as_view(), name='devis-create'),
+    path('contact/', MessageContactCreateView.as_view(), name='contact-create'),
     path('devis/mes-devis/', DevisListView.as_view(), name='devis-list'),
     path('', include(router.urls)),
 ]

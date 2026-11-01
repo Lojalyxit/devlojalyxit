@@ -42,3 +42,28 @@ class DevisService(models.Model):
         unique_together = ('devis', 'service')
         verbose_name = 'Service demandé'
         verbose_name_plural = 'Services demandés'
+
+
+class MessageContact(models.Model):
+    """Message envoyé depuis le formulaire de la page Contact."""
+
+    nom = models.CharField(max_length=200)
+    email = models.EmailField()
+    telephone = models.CharField(max_length=30, blank=True)
+    sujet = models.CharField(max_length=50, help_text='Valeur du champ « Sujet » (ex. maintenance, formation).')
+    formation = models.CharField(
+        max_length=120, blank=True,
+        help_text='Slug de la formation si le contact vient d’une fiche formation.',
+    )
+    message = models.TextField()
+    traite = models.BooleanField('Traité', default=False)
+    email_envoye = models.BooleanField('Notification envoyée', default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = 'Message de contact'
+        verbose_name_plural = 'Messages de contact'
+
+    def __str__(self):
+        return f'Message #{self.pk} — {self.nom} ({self.sujet})'
