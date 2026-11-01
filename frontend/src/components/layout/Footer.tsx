@@ -16,6 +16,7 @@ const FORMATION_LINKS = [
   { href: '/formations?domaine=Cybersécurité', label: 'Cybersécurité (CEH)' },
   { href: '/formations?domaine=Cloud', label: 'Cloud & DevOps' },
   { href: '/formations?domaine=Développement', label: 'Développement' },
+  { href: '/formations/ia-automatisation', label: 'IA & Automatisation' },
 ]
 
 export function Footer() {

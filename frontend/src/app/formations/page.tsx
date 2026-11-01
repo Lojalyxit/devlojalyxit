@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Centre de Formation Certifiant',
-  description: 'Formations certifiantes à Conakry : CCNA, CCNP, CEH v13, DevOps, Python, Windows Server. Tarifs en GNF. Formats présentiel, en ligne et intra-entreprise.',
+  description: 'Formations certifiantes à Conakry : CCNA, CCNP, CEH v13, FortiGate, Linux, DevOps, Python, Windows Server, IA & Automatisation. Tarifs en GNF. Formats présentiel, en ligne et intra-entreprise.',
 }
 
 const NIVEAU_LABELS: Record<string, string> = {

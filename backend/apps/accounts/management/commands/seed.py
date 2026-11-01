@@ -1479,7 +1479,7 @@ FORMATIONS = [
         ],
     },
 
-    # ─── Formations supplémentaires (sans modules détaillés) ──────────────────
+    # ─── 9. DevOps & Cloud AWS ─────────────────────────────────────────────────
     {
         'slug': 'devops-cloud-aws',
         'titre': 'DevOps & Cloud AWS',
@@ -1501,7 +1501,124 @@ FORMATIONS = [
         'certification': 'AWS Solutions Architect Associate (SAA-C03)',
         'tarif_min_gnf': 2500000,
         'tarif_max_gnf': 4500000,
-        'modules': [],
+        'modules': [
+            {
+                'titre': 'Culture DevOps et CI/CD',
+                'ordre': 1,
+                'duree_heures': 6,
+                'objectifs': (
+                    "Comprendre les principes DevOps et leur impact sur la livraison logicielle\n"
+                    "Maîtriser Git et les stratégies de branches en équipe\n"
+                    "Construire un pipeline CI/CD complet"
+                ),
+                'contenu': (
+                    "Culture DevOps : collaboration Dev/Ops, boucles de feedback, métriques DORA\n"
+                    "Git avancé : branches, merge vs rebase, pull requests, GitFlow, trunk-based\n"
+                    "Intégration continue : build, tests automatisés, analyse de qualité\n"
+                    "Livraison et déploiement continus : environnements, artefacts, rollback\n"
+                    "Outils : GitHub Actions, GitLab CI, Jenkins\n"
+                    "Lab : pipeline CI/CD d'une application web, du commit à la mise en production"
+                ),
+            },
+            {
+                'titre': 'Conteneurisation Docker et orchestration Kubernetes',
+                'ordre': 2,
+                'duree_heures': 9,
+                'objectifs': (
+                    "Conteneuriser une application avec Docker\n"
+                    "Orchestrer des services multi-conteneurs avec Docker Compose\n"
+                    "Déployer et gérer des applications sur Kubernetes"
+                ),
+                'contenu': (
+                    "Docker : images, conteneurs, Dockerfile, couches, multi-stage builds\n"
+                    "Volumes, réseaux et registres (Docker Hub, Amazon ECR)\n"
+                    "Docker Compose : stack applicative (web, base de données, cache)\n"
+                    "Kubernetes : architecture (control plane, nodes), kubectl\n"
+                    "Pods, Deployments, Services, Ingress, ConfigMaps et Secrets\n"
+                    "Mise à l'échelle, rolling updates, probes de santé, Helm\n"
+                    "Amazon EKS : présentation et déploiement d'un cluster managé\n"
+                    "Lab : déployer une application conteneurisée sur Kubernetes"
+                ),
+            },
+            {
+                'titre': 'Infrastructure as Code avec Terraform',
+                'ordre': 3,
+                'duree_heures': 7,
+                'objectifs': (
+                    "Décrire une infrastructure cloud sous forme de code\n"
+                    "Gérer l'état Terraform en équipe de façon sécurisée\n"
+                    "Créer des modules réutilisables"
+                ),
+                'contenu': (
+                    "Principes IaC : déclaratif vs impératif, idempotence, revue de code\n"
+                    "Terraform : providers, ressources, variables, outputs\n"
+                    "Cycle init / plan / apply / destroy\n"
+                    "State distant : backend S3 et verrouillage DynamoDB\n"
+                    "Modules, workspaces et gestion multi-environnements\n"
+                    "Introduction à Ansible pour la configuration des serveurs\n"
+                    "Lab : provisionner un VPC, des instances EC2 et une base RDS avec Terraform"
+                ),
+            },
+            {
+                'titre': 'Services AWS (EC2, S3, RDS, Lambda)',
+                'ordre': 4,
+                'duree_heures': 10,
+                'objectifs': (
+                    "Concevoir une architecture AWS résiliente et performante\n"
+                    "Maîtriser les services de calcul, stockage, base de données et réseau\n"
+                    "Déployer des applications serverless"
+                ),
+                'contenu': (
+                    "Infrastructure globale AWS : régions, zones de disponibilité, edge locations\n"
+                    "IAM : utilisateurs, rôles, politiques, principe du moindre privilège\n"
+                    "VPC : sous-réseaux publics/privés, routage, NAT Gateway, Security Groups\n"
+                    "EC2 : types d'instances, AMI, EBS, Auto Scaling, Elastic Load Balancing\n"
+                    "S3 : classes de stockage, versioning, cycle de vie, hébergement statique\n"
+                    "RDS et DynamoDB : Multi-AZ, réplicas en lecture, sauvegardes\n"
+                    "Lambda et API Gateway : architecture serverless, événements\n"
+                    "Route 53, CloudFront et optimisation des coûts (Cost Explorer, Budgets)\n"
+                    "Lab : architecture web à trois tiers haute disponibilité"
+                ),
+            },
+            {
+                'titre': 'Monitoring, logging et alerting',
+                'ordre': 5,
+                'duree_heures': 6,
+                'objectifs': (
+                    "Superviser l'état et les performances d'une infrastructure\n"
+                    "Centraliser et analyser les journaux applicatifs\n"
+                    "Mettre en place des alertes pertinentes et des tableaux de bord"
+                ),
+                'contenu': (
+                    "Observabilité : métriques, logs, traces\n"
+                    "Amazon CloudWatch : métriques, alarmes, Logs Insights, dashboards\n"
+                    "AWS CloudTrail : audit des actions sur le compte\n"
+                    "Prometheus et Grafana : collecte et visualisation\n"
+                    "Stack ELK / OpenSearch pour la centralisation des logs\n"
+                    "Alerting : seuils, notifications SNS, Slack, email, gestion des incidents\n"
+                    "Lab : supervision complète de l'application déployée"
+                ),
+            },
+            {
+                'titre': 'Sécurité cloud et préparation AWS SAA-C03',
+                'ordre': 6,
+                'duree_heures': 7,
+                'objectifs': (
+                    "Appliquer le modèle de responsabilité partagée AWS\n"
+                    "Sécuriser données, réseaux et pipelines DevSecOps\n"
+                    "Se préparer efficacement à l'examen AWS Solutions Architect Associate"
+                ),
+                'contenu': (
+                    "Modèle de responsabilité partagée et AWS Well-Architected Framework\n"
+                    "Chiffrement : KMS, chiffrement au repos et en transit, Secrets Manager\n"
+                    "Sécurité réseau : WAF, Shield, NACL, VPC endpoints\n"
+                    "DevSecOps : scan d'images, analyse de dépendances, gestion des secrets en CI\n"
+                    "Revue des 4 domaines SAA-C03 : sécurité, résilience, performance, coûts\n"
+                    "Examens blancs chronométrés (65 questions, 130 min) et correction commentée\n"
+                    "Stratégie de passage et ressources officielles AWS Skill Builder"
+                ),
+            },
+        ],
     },
     {
         'slug': 'marketing-digital-reseaux-sociaux',
@@ -1523,7 +1640,278 @@ FORMATIONS = [
         'certification': '',
         'tarif_min_gnf': 700000,
         'tarif_max_gnf': 1200000,
-        'modules': [],
+        'modules': [
+            {
+                'titre': 'Stratégie de présence digitale',
+                'ordre': 1,
+                'duree_heures': 4,
+                'objectifs': (
+                    "Définir des objectifs marketing digitaux mesurables\n"
+                    "Identifier ses cibles et construire des personas\n"
+                    "Choisir les canaux adaptés au marché guinéen et ouest-africain"
+                ),
+                'contenu': (
+                    "Paysage digital en Guinée et en Afrique de l'Ouest : usages, mobile first\n"
+                    "Objectifs SMART et tunnel de conversion (notoriété, considération, achat, fidélité)\n"
+                    "Personas et parcours client\n"
+                    "Analyse de la concurrence et positionnement\n"
+                    "Choix des canaux : Facebook, Instagram, TikTok, LinkedIn, WhatsApp, site web\n"
+                    "Atelier : plan marketing digital de son entreprise sur 3 mois"
+                ),
+            },
+            {
+                'titre': 'Création de contenu et storytelling',
+                'ordre': 2,
+                'duree_heures': 4,
+                'objectifs': (
+                    "Raconter l'histoire de sa marque de façon engageante\n"
+                    "Produire des visuels et vidéos professionnels avec peu de moyens\n"
+                    "Organiser sa production avec un calendrier éditorial"
+                ),
+                'contenu': (
+                    "Storytelling : structure, émotion, preuve sociale, témoignages clients\n"
+                    "Copywriting : accroches, appels à l'action, méthode AIDA\n"
+                    "Visuels avec Canva : charte graphique, modèles, cohérence de marque\n"
+                    "Vidéo courte au smartphone : Reels, TikTok, montage avec CapCut\n"
+                    "Création de contenu assistée par l'IA\n"
+                    "Calendrier éditorial et règle 80/20 (valeur vs promotion)"
+                ),
+            },
+            {
+                'titre': 'Gestion des réseaux sociaux',
+                'ordre': 3,
+                'duree_heures': 4,
+                'objectifs': (
+                    "Optimiser ses pages et profils professionnels\n"
+                    "Animer et fédérer une communauté\n"
+                    "Vendre via les réseaux sociaux et WhatsApp Business"
+                ),
+                'contenu': (
+                    "Configuration professionnelle : Meta Business Suite, Instagram, TikTok, LinkedIn\n"
+                    "Programmation des publications et meilleurs horaires\n"
+                    "Community management : modération, réponses, gestion des avis négatifs\n"
+                    "WhatsApp Business : catalogue, messages automatiques, statuts, listes de diffusion\n"
+                    "Social selling et collaborations avec des influenceurs locaux\n"
+                    "Gestion de crise sur les réseaux sociaux"
+                ),
+            },
+            {
+                'titre': 'SEO et référencement local',
+                'ordre': 4,
+                'duree_heures': 4,
+                'objectifs': (
+                    "Comprendre le fonctionnement des moteurs de recherche\n"
+                    "Optimiser un site web pour Google\n"
+                    "Être visible localement à Conakry et en Guinée"
+                ),
+                'contenu': (
+                    "Fonctionnement de Google : exploration, indexation, classement\n"
+                    "Recherche de mots-clés et intention de recherche\n"
+                    "SEO on-page : titres, méta-descriptions, contenu, vitesse, mobile\n"
+                    "SEO off-page : liens entrants, annuaires, partenariats\n"
+                    "Google Business Profile : fiche, photos, avis clients, publications\n"
+                    "Outils : Google Search Console, Ubersuggest\n"
+                    "Atelier : audit SEO et optimisation de sa fiche Google"
+                ),
+            },
+            {
+                'titre': 'Publicité digitale et analytics',
+                'ordre': 5,
+                'duree_heures': 4,
+                'objectifs': (
+                    "Lancer des campagnes publicitaires rentables sur Meta et Google\n"
+                    "Cibler précisément et maîtriser son budget\n"
+                    "Mesurer les résultats et optimiser les performances"
+                ),
+                'contenu': (
+                    "Meta Ads : objectifs de campagne, audiences, placements, formats\n"
+                    "Google Ads : réseau de recherche, Display, YouTube\n"
+                    "Budget, enchères et paiement des publicités depuis la Guinée\n"
+                    "Pixel Meta, Google Analytics 4 et suivi des conversions\n"
+                    "KPI : portée, CPM, CPC, CTR, coût par lead, ROAS\n"
+                    "Tests A/B et optimisation continue\n"
+                    "Atelier : créer et paramétrer une campagne publicitaire complète"
+                ),
+            },
+        ],
+    },
+
+    # ─── 11. Intelligence Artificielle & Automatisation ───────────────────────
+    {
+        'slug': 'ia-automatisation',
+        'titre': 'Intelligence Artificielle & Automatisation — IA générative, agents et workflows',
+        'domaine': 'IA & Automatisation',
+        'duree_heures': 30,
+        'niveau': 'tous',
+        'programme': (
+            "Module 1 : Comprendre l'IA et l'IA générative\n"
+            'Module 2 : Prompt engineering et assistants IA au quotidien\n'
+            'Module 3 : IA pour la productivité et le contenu\n'
+            "Module 4 : Automatisation no-code avec n8n, Make et Zapier\n"
+            'Module 5 : Chatbots et automatisation WhatsApp\n'
+            "Module 6 : Intégrer l'IA par API (Python)\n"
+            'Module 7 : Agents IA et bases de connaissances (RAG)\n'
+            'Module 8 : Éthique, sécurité des données et projet final'
+        ),
+        'description_longue': (
+            "Formation pratique pour exploiter l'intelligence artificielle et automatiser "
+            "les tâches répétitives en entreprise. Les participants apprennent à utiliser "
+            "les assistants IA (ChatGPT, Claude, Gemini, Copilot), à concevoir des workflows "
+            "automatisés sans code (n8n, Make, Zapier), à déployer des chatbots WhatsApp et "
+            "à construire des agents IA connectés aux données de l'entreprise. Ouverte aux "
+            "dirigeants, employés, entrepreneurs et profils techniques. Cas pratiques adaptés "
+            "au contexte guinéen et ouest-africain : service client, facturation, Mobile Money, "
+            "prospection et reporting. À l'issue, chaque participant repart avec ses propres "
+            "automatisations opérationnelles."
+        ),
+        'certification': "Attestation de compétences IA & Automatisation (projet final évalué)",
+        'tarif_min_gnf': 1200000,
+        'tarif_max_gnf': 2500000,
+        'modules': [
+            {
+                'titre': "Comprendre l'IA et l'IA générative",
+                'ordre': 1,
+                'duree_heures': 3,
+                'objectifs': (
+                    "Distinguer IA, machine learning, deep learning et IA générative\n"
+                    "Comprendre le fonctionnement des grands modèles de langage (LLM)\n"
+                    "Identifier les cas d'usage à fort impact pour son activité"
+                ),
+                'contenu': (
+                    "Histoire et concepts clés : IA, ML, deep learning, réseaux de neurones\n"
+                    "LLM : tokens, contexte, entraînement, hallucinations et limites\n"
+                    "Panorama des outils : ChatGPT, Claude, Gemini, Copilot, Mistral\n"
+                    "IA multimodale : texte, image, audio, vidéo\n"
+                    "Cas d'usage par métier : RH, finance, commercial, support, IT\n"
+                    "Atelier : cartographier les tâches automatisables de son poste"
+                ),
+            },
+            {
+                'titre': 'Prompt engineering et assistants IA au quotidien',
+                'ordre': 2,
+                'duree_heures': 4,
+                'objectifs': (
+                    "Rédiger des prompts précis et réutilisables\n"
+                    "Obtenir des résultats fiables et vérifiables\n"
+                    "Créer ses propres assistants personnalisés"
+                ),
+                'contenu': (
+                    "Anatomie d'un bon prompt : rôle, contexte, tâche, format, exemples\n"
+                    "Techniques avancées : few-shot, chaîne de raisonnement, découpage de tâches\n"
+                    "Vérification des réponses et réduction des hallucinations\n"
+                    "Bibliothèque de prompts métier réutilisables\n"
+                    "Assistants personnalisés : GPTs, Projects, Gems\n"
+                    "Atelier : construire un assistant pour son service"
+                ),
+            },
+            {
+                'titre': 'IA pour la productivité et le contenu',
+                'ordre': 3,
+                'duree_heures': 4,
+                'objectifs': (
+                    "Accélérer la rédaction, l'analyse et la synthèse de documents\n"
+                    "Analyser des données Excel avec l'IA\n"
+                    "Produire visuels et présentations assistés par IA"
+                ),
+                'contenu': (
+                    "Rédaction : emails, rapports, offres commerciales, comptes rendus\n"
+                    "Synthèse de documents longs et PDF, traduction français/anglais\n"
+                    "Analyse de données : tableaux Excel, graphiques, formules générées par IA\n"
+                    "Génération d'images et de visuels marketing\n"
+                    "Présentations et supports de formation assistés par IA\n"
+                    "Transcription et résumé de réunions"
+                ),
+            },
+            {
+                'titre': 'Automatisation no-code avec n8n, Make et Zapier',
+                'ordre': 4,
+                'duree_heures': 5,
+                'objectifs': (
+                    "Comprendre les déclencheurs, actions et flux de données\n"
+                    "Construire des workflows multi-étapes sans coder\n"
+                    "Intégrer l'IA au cœur des automatisations"
+                ),
+                'contenu': (
+                    "Principes : triggers, actions, webhooks, API, formats JSON\n"
+                    "n8n (open source, auto-hébergeable) vs Make vs Zapier\n"
+                    "Connecter Gmail, Google Sheets, Drive, Calendar, CRM\n"
+                    "Conditions, boucles, gestion des erreurs et journalisation\n"
+                    "Nœuds IA : classification d'emails, extraction de données, réponses automatiques\n"
+                    "Atelier : automatiser le traitement des demandes clients de bout en bout"
+                ),
+            },
+            {
+                'titre': 'Chatbots et automatisation WhatsApp',
+                'ordre': 5,
+                'duree_heures': 4,
+                'objectifs': (
+                    "Concevoir un parcours conversationnel efficace\n"
+                    "Déployer un chatbot WhatsApp Business connecté à l'IA\n"
+                    "Automatiser prise de commande, relances et support"
+                ),
+                'contenu': (
+                    "WhatsApp Business App vs WhatsApp Business API\n"
+                    "Conception de parcours : FAQ, qualification de prospects, transfert vers un humain\n"
+                    "Chatbot IA répondant à partir des documents de l'entreprise\n"
+                    "Intégration avec n8n/Make : commandes, rendez-vous, notifications\n"
+                    "Cas pratiques : relances de paiement Mobile Money, suivi de commandes\n"
+                    "Bonnes pratiques : consentement, ton, mesure de la satisfaction"
+                ),
+            },
+            {
+                'titre': "Intégrer l'IA par API (Python)",
+                'ordre': 6,
+                'duree_heures': 4,
+                'objectifs': (
+                    "Appeler les API des modèles d'IA depuis Python\n"
+                    "Structurer les réponses (JSON) pour les intégrer à une application\n"
+                    "Maîtriser les coûts et la sécurité des clés d'API"
+                ),
+                'contenu': (
+                    "Bases de Python utiles : requêtes HTTP, JSON, variables d'environnement\n"
+                    "API OpenAI, Anthropic et Google : authentification, modèles, paramètres\n"
+                    "Sorties structurées et appel d'outils (function calling)\n"
+                    "Traitement par lots : classification de tickets, extraction de factures\n"
+                    "Coûts, quotas, mise en cache et suivi de consommation\n"
+                    "Atelier : script d'analyse automatique de documents"
+                ),
+            },
+            {
+                'titre': 'Agents IA et bases de connaissances (RAG)',
+                'ordre': 7,
+                'duree_heures': 4,
+                'objectifs': (
+                    "Comprendre le fonctionnement d'un agent IA et du RAG\n"
+                    "Connecter une IA aux documents internes de l'entreprise\n"
+                    "Construire un agent capable d'agir via des outils"
+                ),
+                'contenu': (
+                    "Embeddings, bases vectorielles et recherche sémantique\n"
+                    "RAG : indexation de documents, découpage, citation des sources\n"
+                    "Agents IA : planification, outils, mémoire, boucle d'action\n"
+                    "Agents dans n8n et protocole MCP (Model Context Protocol)\n"
+                    "Supervision humaine, garde-fous et évaluation des réponses\n"
+                    "Atelier : assistant interne répondant sur les procédures de l'entreprise"
+                ),
+            },
+            {
+                'titre': 'Éthique, sécurité des données et projet final',
+                'ordre': 8,
+                'duree_heures': 2,
+                'objectifs': (
+                    "Utiliser l'IA de façon responsable et conforme\n"
+                    "Protéger les données sensibles de l'entreprise\n"
+                    "Présenter une automatisation opérationnelle"
+                ),
+                'contenu': (
+                    "Confidentialité : données à ne jamais partager, comptes entreprise, hébergement\n"
+                    "Biais, droits d'auteur et transparence envers les clients\n"
+                    "Charte d'usage de l'IA en entreprise\n"
+                    "Mesurer le retour sur investissement d'une automatisation\n"
+                    "Projet final : conception, démonstration et évaluation d'un workflow IA"
+                ),
+            },
+        ],
     },
 ]
 
@@ -1573,28 +1961,25 @@ class Command(BaseCommand):
 
             if is_new:
                 created_count += 1
-                # Session présentielle dans ~30 jours
-                debut = today + datetime.timedelta(days=30)
-                Session.objects.create(
-                    formation=formation,
-                    date_debut=debut,
-                    date_fin=debut + datetime.timedelta(days=max(formation.duree_heures // 8, 1)),
-                    format='presentiel',
-                    places_max=15,
-                    statut='ouverte',
-                )
-                # Session en ligne dans ~60 jours
-                debut2 = today + datetime.timedelta(days=60)
-                Session.objects.create(
-                    formation=formation,
-                    date_debut=debut2,
-                    date_fin=debut2 + datetime.timedelta(days=max(formation.duree_heures // 8, 1)),
-                    format='en_ligne',
-                    places_max=30,
-                    statut='ouverte',
-                )
             else:
                 updated_count += 1
+
+            # Les sessions dont la date est passée ne sont plus proposées
+            formation.sessions.filter(statut='ouverte', date_debut__lt=today).update(statut='terminee')
+
+            # Garantir des sessions à venir : présentiel (~30 j) et en ligne (~60 j)
+            if not formation.sessions.filter(statut='ouverte', date_debut__gte=today).exists():
+                duree_jours = datetime.timedelta(days=max(formation.duree_heures // 8, 1))
+                for delai, fmt, places in ((30, 'presentiel', 15), (60, 'en_ligne', 30)):
+                    debut = today + datetime.timedelta(days=delai)
+                    Session.objects.create(
+                        formation=formation,
+                        date_debut=debut,
+                        date_fin=debut + duree_jours,
+                        format=fmt,
+                        places_max=places,
+                        statut='ouverte',
+                    )
 
             # Recréer les modules (idempotent)
             if modules_data:
