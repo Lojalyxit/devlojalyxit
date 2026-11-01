@@ -4,6 +4,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { AuthProvider } from '@/contexts/AuthContext'
 import { NavigationProgress } from '@/components/ui/NavigationProgress'
+import { SLOGAN, SITE_URL } from '@/lib/site'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -26,20 +27,30 @@ const poppins = Poppins({
   display: 'swap',
 })
 
+const DESCRIPTION =
+  `${SLOGAN} LojalyxIT SARL : maintenance, réseaux, cybersécurité, cloud, développement logiciel, ` +
+  'automatisation et centre de formation certifiant à Conakry, Guinée.'
+
 export const metadata: Metadata = {
   title: {
     default: 'LojalyxIT — Solutions IT & Centre de Formation | Conakry',
     template: '%s | LojalyxIT',
   },
-  description:
-    'LojalyxIT SARL : cloud, cybersécurité, développement logiciel, réseau, marketing digital et centre de formation certifiant à Conakry, Guinée.',
-  metadataBase: new URL('https://lojalyxit.com'),
+  description: DESCRIPTION,
+  metadataBase: new URL(SITE_URL),
   keywords: ['IT Conakry', 'formation CCNA', 'cybersécurité Guinée', 'développement logiciel', 'cloud Afrique'],
   openGraph: {
     type: 'website',
     locale: 'fr_GN',
-    url: 'https://lojalyxit.com',
+    url: SITE_URL,
     siteName: 'LojalyxIT',
+    title: `LojalyxIT — ${SLOGAN}`,
+    description: DESCRIPTION,
+  },
+  twitter: {
+    card: 'summary',
+    title: `LojalyxIT — ${SLOGAN}`,
+    description: DESCRIPTION,
   },
 }
 

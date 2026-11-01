@@ -3,10 +3,11 @@ import { ArrowRight, CheckCircle, Shield, Clock, Award, ChevronRight } from 'luc
 import { getServices, getContenuAccueil } from '@/lib/api'
 import { ServiceIcon } from '@/components/ui/ServiceIcon'
 import ReferencesSection from '@/components/sections/ReferencesSection'
+import { SLOGAN } from '@/lib/site'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'LojalyxIT — Solutions IT & Centre de Formation | Conakry',
+  title: { absolute: `LojalyxIT — ${SLOGAN} | Solutions IT & Formation à Conakry` },
 }
 
 const REASSURANCE = [

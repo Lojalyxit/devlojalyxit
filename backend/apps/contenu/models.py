@@ -3,8 +3,9 @@ from django.db import models
 # Textes par défaut de la section hero (aussi utilisés par la migration de données
 # et comme valeurs de repli côté frontend).
 HERO_DEFAULTS = {
-    'titre_ligne_1': 'We Build Smart',
-    'titre_ligne_2': 'Digital Futures !!',
+    # Slogan officiel : « We build smart digital futures. »
+    'titre_ligne_1': 'We build smart',
+    'titre_ligne_2': 'digital futures.',
     'sous_titre': (
         'Votre partenaire IT de confiance à Conakry. Solutions cloud, cybersécurité, '
         'développement logiciel et centre de formation certifiant.'

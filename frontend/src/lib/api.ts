@@ -1,4 +1,5 @@
 import type { Service, FormationListItem, Formation, PaginatedResponse, ContenuAccueil } from '@/types'
+import { SLOGAN_LIGNE_1, SLOGAN_LIGNE_2 } from '@/lib/site'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'
 
@@ -25,8 +26,8 @@ export async function getServices(): Promise<Service[]> {
 
 // Textes affichés si l'API ne répond pas (identiques à la migration de données Django)
 export const CONTENU_ACCUEIL_DEFAUT: ContenuAccueil = {
-  titre_ligne_1: 'We Build Smart',
-  titre_ligne_2: 'Digital Futures !!',
+  titre_ligne_1: SLOGAN_LIGNE_1,
+  titre_ligne_2: SLOGAN_LIGNE_2,
   sous_titre:
     'Votre partenaire IT de confiance à Conakry. Solutions cloud, cybersécurité, ' +
     'développement logiciel et centre de formation certifiant.',
