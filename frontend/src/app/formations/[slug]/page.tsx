@@ -4,7 +4,7 @@ import {
   Clock, BarChart2, Award, ArrowLeft,
   CheckCircle, BookOpen, Calendar, Users,
 } from 'lucide-react'
-import { getFormation, getFormations } from '@/lib/api'
+import { getFormation } from '@/lib/api'
 import { Badge } from '@/components/ui/Badge'
 import { VideoPlayer } from '@/components/ui/VideoPlayer'
 import { MentionCertification } from '@/components/formations/MentionCertification'
@@ -16,10 +16,8 @@ interface Props {
   params: Promise<{ slug: string }>
 }
 
-export async function generateStaticParams() {
-  const formations = await getFormations()
-  return formations.map((f) => ({ slug: f.slug }))
-}
+// Rendu à chaque requête : un lien Chariow ou une session ajoutés dans l'admin apparaissent immédiatement
+export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params

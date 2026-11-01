@@ -6,6 +6,9 @@ import { InscriptionActions } from '@/components/formations/InscriptionActions'
 import { formatGNF } from '@/lib/utils'
 import type { Metadata } from 'next'
 
+// Catalogue toujours à jour (formations, liens Chariow, sessions)
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Centre de Formation Certifiant',
   description: 'Formations certifiantes à Conakry : CCNA, CCNP, CEH v13, FortiGate, Linux, DevOps, Python, Windows Server, IA & Automatisation. Tarifs en GNF. Formats présentiel, en ligne et intra-entreprise.',

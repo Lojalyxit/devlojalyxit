@@ -67,9 +67,7 @@ export async function getFormations(): Promise<FormationListItem[]> {
 
 export async function getFormation(slug: string): Promise<Formation | null> {
   try {
-    return await apiFetch<Formation>(`/formations/${slug}/`, {
-      next: { revalidate: 3600 },
-    } as any)
+    return await apiFetch<Formation>(`/formations/${slug}/`, { cache: 'no-store' })
   } catch {
     return null
   }
