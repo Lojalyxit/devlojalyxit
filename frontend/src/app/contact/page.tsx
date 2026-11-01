@@ -72,7 +72,7 @@ export default function ContactPage() {
                     <div>
                       <p className="font-sans font-semibold text-textdark text-sm mb-1">{titre}</p>
                       {lines.map((line) => (
-                        <p key={line} className="text-muted text-sm font-light">{line}</p>
+                        <p key={line} className="text-gray-600 text-sm">{line}</p>
                       ))}
                     </div>
                   </div>

@@ -34,7 +34,7 @@ export default async function HomePage() {
           <h1 className="font-display text-title text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
             {hero.titre_ligne_1}
             <br />
-            <span className="text-primary">{hero.titre_ligne_2}</span>
+            <span className="text-brand-green-light">{hero.titre_ligne_2}</span>
           </h1>
           <p className="text-textlight text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
             {hero.sous_titre}

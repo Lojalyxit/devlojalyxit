@@ -170,7 +170,7 @@ export default function AProposPage() {
                 <p className="font-display text-title text-xl font-bold leading-snug">
                   HABA Cece Jérôme
                 </p>
-                <p className="text-primary text-sm font-sans font-medium mt-1">
+                <p className="text-brand-green-light text-sm font-sans font-medium mt-1">
                   Fondateur &amp; Directeur Général
                 </p>
                 <p className="text-muted text-xs font-light mt-0.5">

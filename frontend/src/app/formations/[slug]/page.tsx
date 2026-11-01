@@ -92,15 +92,15 @@ export default async function FormationDetailPage({ params }: Props) {
 
           <div className="flex flex-wrap gap-6 text-textlight text-sm mb-8">
             <span className="flex items-center gap-2">
-              <Clock size={15} className="text-primary" />
+              <Clock size={15} className="text-brand-green-light" />
               {formation.duree_heures} heures de formation
             </span>
             <span className="flex items-center gap-2">
-              <BarChart2 size={15} className="text-primary" />
+              <BarChart2 size={15} className="text-brand-green-light" />
               {NIVEAU_LABELS[formation.niveau]}
             </span>
             <span className="flex items-center gap-2">
-              <BookOpen size={15} className="text-primary" />
+              <BookOpen size={15} className="text-brand-green-light" />
               {hasModules ? `${formation.modules.length} modules` : 'Présentiel & En ligne'}
             </span>
           </div>
@@ -108,7 +108,7 @@ export default async function FormationDetailPage({ params }: Props) {
           {/* Tarif + CTA visible en hero sur mobile */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 md:hidden">
             <div>
-              <span className="text-primary font-display text-xl font-bold">
+              <span className="text-brand-green-light font-display text-xl font-bold">
                 {formatGNF(formation.tarif_min_gnf)}
               </span>
               {formation.tarif_min_gnf !== formation.tarif_max_gnf && (
@@ -167,7 +167,7 @@ export default async function FormationDetailPage({ params }: Props) {
                           {/* En-tête module */}
                           <div className="flex items-center justify-between gap-4 px-6 py-4 border-b border-white/10">
                             <div className="flex items-center gap-3">
-                              <span className="w-8 h-8 rounded-full bg-primary/20 text-primary text-xs font-medium font-sans flex items-center justify-center shrink-0">
+                              <span className="w-8 h-8 rounded-full bg-primary/20 text-brand-green-light text-xs font-medium font-sans flex items-center justify-center shrink-0">
                                 {String(mod.ordre).padStart(2, '0')}
                               </span>
                               <h3 className="font-sans font-semibold text-title text-base leading-snug">
@@ -191,7 +191,7 @@ export default async function FormationDetailPage({ params }: Props) {
                                 <ul className="space-y-1.5">
                                   {objectifsLines.map((line, i) => (
                                     <li key={i} className="flex items-start gap-2">
-                                      <CheckCircle size={14} className="text-primary mt-0.5 shrink-0" />
+                                      <CheckCircle size={14} className="text-brand-green-light mt-0.5 shrink-0" />
                                       <span className="text-textlight font-light text-sm">{line}</span>
                                     </li>
                                   ))}
@@ -208,7 +208,7 @@ export default async function FormationDetailPage({ params }: Props) {
                                 <ul className="space-y-1.5">
                                   {contenuLines.map((line, i) => (
                                     <li key={i} className="flex items-start gap-2">
-                                      <span className="text-primary mt-1 shrink-0 text-xs">▸</span>
+                                      <span className="text-brand-green-light mt-1 shrink-0 text-xs">▸</span>
                                       <span className="text-textlight font-light text-sm">{line}</span>
                                     </li>
                                   ))}
@@ -237,7 +237,7 @@ export default async function FormationDetailPage({ params }: Props) {
                   <ul className="space-y-3">
                     {formation.programme.split('\n').filter(Boolean).map((line, i) => (
                       <li key={i} className="flex items-start gap-3">
-                        <span className="w-6 h-6 rounded-full bg-primary/20 text-primary text-xs font-medium flex items-center justify-center shrink-0 mt-0.5">
+                        <span className="w-6 h-6 rounded-full bg-primary/20 text-brand-green-light text-xs font-medium flex items-center justify-center shrink-0 mt-0.5">
                           {i + 1}
                         </span>
                         <span className="text-textlight font-light">{line}</span>
@@ -268,11 +268,11 @@ export default async function FormationDetailPage({ params }: Props) {
                             </div>
                             <div className="flex items-center gap-4 text-sm text-textlight mt-1 font-sans">
                               <span className="flex items-center gap-1.5">
-                                <Calendar size={13} className="text-primary" />
+                                <Calendar size={13} className="text-brand-green-light" />
                                 {formatDate(session.date_debut)} → {formatDate(session.date_fin)}
                               </span>
                               <span className="flex items-center gap-1.5">
-                                <Users size={13} className="text-primary" />
+                                <Users size={13} className="text-brand-green-light" />
                                 {session.places_restantes} place{session.places_restantes > 1 ? 's' : ''} restante{session.places_restantes > 1 ? 's' : ''}
                               </span>
                             </div>
@@ -294,7 +294,7 @@ export default async function FormationDetailPage({ params }: Props) {
                 <p className="text-muted text-xs font-sans uppercase tracking-wider mb-3">
                   Tarif de la formation
                 </p>
-                <p className="font-display text-primary text-3xl font-bold mb-1">
+                <p className="font-display text-brand-green-light text-3xl font-bold mb-1">
                   {formatGNF(formation.tarif_min_gnf)}
                 </p>
                 {formation.tarif_min_gnf !== formation.tarif_max_gnf && (

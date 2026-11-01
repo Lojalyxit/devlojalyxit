@@ -45,7 +45,7 @@ export function Header() {
               href={href}
               className={cn(
                 'font-sans text-sm transition-colors duration-150',
-                pathname === href ? 'text-primary font-medium' : 'text-textlight hover:text-white',
+                pathname === href ? 'text-brand-green-light font-medium' : 'text-textlight hover:text-white',
               )}
             >
               {label}
@@ -62,7 +62,7 @@ export function Header() {
                 className="flex items-center gap-2 text-textlight hover:text-white text-sm transition-colors"
               >
                 <div className="w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center">
-                  <User size={16} className="text-primary" />
+                  <User size={16} className="text-brand-green-light" />
                 </div>
                 <span className="font-medium max-w-[120px] truncate">
                   {user.full_name || user.email.split('@')[0]}
@@ -131,7 +131,7 @@ export function Header() {
               onClick={() => setOpen(false)}
               className={cn(
                 'font-sans text-base py-2 border-b border-white/5',
-                pathname === href ? 'text-primary font-medium' : 'text-textlight',
+                pathname === href ? 'text-brand-green-light font-medium' : 'text-textlight',
               )}
             >
               {label}

@@ -42,7 +42,7 @@ export function Footer() {
             <ul className="space-y-2">
               {SERVICES_LINKS.map(({ href, label }) => (
                 <li key={href}>
-                  <Link href={href} className="text-sm text-textlight hover:text-primary transition-colors">
+                  <Link href={href} className="text-sm text-textlight hover:text-brand-green-light transition-colors">
                     {label}
                   </Link>
                 </li>
@@ -58,7 +58,7 @@ export function Footer() {
             <ul className="space-y-2">
               {FORMATION_LINKS.map(({ href, label }) => (
                 <li key={href}>
-                  <Link href={href} className="text-sm text-textlight hover:text-primary transition-colors">
+                  <Link href={href} className="text-sm text-textlight hover:text-brand-green-light transition-colors">
                     {label}
                   </Link>
                 </li>
@@ -73,17 +73,17 @@ export function Footer() {
             </h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm">
-                <MapPin size={16} className="text-primary mt-0.5 shrink-0" />
+                <MapPin size={16} className="text-brand-green-light mt-0.5 shrink-0" />
                 <span>Conakry, République de Guinée</span>
               </li>
               <li className="flex items-center gap-2 text-sm">
-                <Mail size={16} className="text-primary shrink-0" />
-                <a href="mailto:ceo@lojalyxit.com" className="hover:text-primary transition-colors">
+                <Mail size={16} className="text-brand-green-light shrink-0" />
+                <a href="mailto:ceo@lojalyxit.com" className="hover:text-brand-green-light transition-colors">
                   ceo@lojalyxit.com
                 </a>
               </li>
               <li className="flex items-center gap-2 text-sm">
-                <Phone size={16} className="text-primary shrink-0" />
+                <Phone size={16} className="text-brand-green-light shrink-0" />
                 <span>+224 622 36 54 20</span>
               </li>
             </ul>

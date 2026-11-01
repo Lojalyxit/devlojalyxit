@@ -14,6 +14,10 @@ const config: Config = {
           dark: '#3A5F4C',
           light: '#7FA68F',
         },
+        'brand-green-light': {
+          // Variante claire du vert pour le TEXTE sur fond sombre (#6FA58A sur #080808 ≈ 7:1, WCAG AA ✓)
+          DEFAULT: 'var(--brand-green-light)',
+        },
         accent: '#C9A86A',
         bgdark: '#080808',
         bgdeep: '#101001',
