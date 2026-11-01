@@ -12,6 +12,20 @@ export const NOM_SOCIETE = 'LojalyxIT SARL'
 
 // ── Coordonnées ─────────────────────────────────────────────────────────────
 
+/** Adresse officielle unique : Almamy, Kaloum, Conakry, République de Guinée. */
+export const ADRESSE = {
+  quartier: 'Almamy',
+  commune: 'Kaloum',
+  ville: 'Conakry',
+  pays: 'République de Guinée',
+  codePays: 'GN',
+  ligne1: 'Almamy, Kaloum',
+  ligne2: 'Conakry, République de Guinée',
+  complete: 'Almamy, Kaloum, Conakry, République de Guinée',
+} as const
+
+export const HORAIRES_AFFICHES = 'Lun — Ven : 8h00 — 18h00'
+
 export const TELEPHONE_AFFICHE = '+224 622 36 54 20'
 export const TELEPHONE_E164 = '+224622365420'
 export const TELEPHONE_HREF = `tel:${TELEPHONE_E164}`

@@ -3,7 +3,7 @@ import { MapPin, Phone, Mail } from 'lucide-react'
 import { Logo } from '@/components/ui/Logo'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
-import { EMAIL_PUBLIC, TELEPHONE_AFFICHE, TELEPHONE_HREF } from '@/lib/site'
+import { ADRESSE, EMAIL_PUBLIC, TELEPHONE_AFFICHE, TELEPHONE_HREF } from '@/lib/site'
 
 const SERVICES_LINKS = [
   { href: '/services#serveurs-cloud', label: 'Serveurs & Cloud' },
@@ -77,7 +77,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm">
                 <MapPin size={16} className="text-brand-green-light mt-0.5 shrink-0" />
-                <span>Conakry, République de Guinée</span>
+                <span>{ADRESSE.complete}</span>
               </li>
               <li className="flex items-center gap-2 text-sm">
                 <Mail size={16} className="text-brand-green-light shrink-0" />

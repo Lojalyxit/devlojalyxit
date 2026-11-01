@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { ContactForm } from './ContactForm'
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
-import { EMAIL_PUBLIC, TELEPHONE_AFFICHE, TELEPHONE_HREF } from '@/lib/site'
+import { ADRESSE, EMAIL_PUBLIC, HORAIRES_AFFICHES, TELEPHONE_AFFICHE, TELEPHONE_HREF } from '@/lib/site'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Contactez LojalyxIT à Conakry. Formulaire en ligne, WhatsApp, email ou téléphone — nous répondons sous 24h.',
 }
 
-const MAP_QUERY = encodeURIComponent('Almamy, Kaloum, Conakry, Guinée')
+const MAP_QUERY = encodeURIComponent(`${ADRESSE.quartier}, ${ADRESSE.commune}, ${ADRESSE.ville}, Guinée`)
 const MAP_EMBED_URL = `https://www.google.com/maps?q=${MAP_QUERY}&z=16&hl=fr&output=embed`
 const MAP_LINK_URL = `https://www.google.com/maps/search/?api=1&query=${MAP_QUERY}`
 
@@ -18,7 +18,7 @@ const INFOS:{ icon: typeof MapPin; titre: string; lines: { texte: string; href?:
   {
     icon: MapPin,
     titre: 'Adresse',
-    lines: [{ texte: 'Almamy, Kaloum' }, { texte: 'Conakry, République de Guinée' }],
+    lines: [{ texte: ADRESSE.ligne1 }, { texte: ADRESSE.ligne2 }],
   },
   {
     icon: Mail,
@@ -33,7 +33,7 @@ const INFOS:{ icon: typeof MapPin; titre: string; lines: { texte: string; href?:
   {
     icon: Clock,
     titre: 'Disponibilité',
-    lines: [{ texte: 'Lun — Ven : 8h00 — 18h00' }, { texte: 'Support 7J/7' }],
+    lines: [{ texte: HORAIRES_AFFICHES }, { texte: 'Support 7J/7' }],
   },
 ]
 
