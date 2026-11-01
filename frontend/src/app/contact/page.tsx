@@ -10,7 +10,11 @@ export const metadata: Metadata = {
   description: 'Contactez LojalyxIT à Conakry. Formulaire en ligne, WhatsApp, email ou téléphone — nous répondons sous 24h.',
 }
 
-const INFOS: { icon: typeof MapPin; titre: string; lines: { texte: string; href?: string }[] }[] = [
+const MAP_QUERY = encodeURIComponent('Almamy, Kaloum, Conakry, Guinée')
+const MAP_EMBED_URL = `https://www.google.com/maps?q=${MAP_QUERY}&z=16&hl=fr&output=embed`
+const MAP_LINK_URL = `https://www.google.com/maps/search/?api=1&query=${MAP_QUERY}`
+
+const INFOS:{ icon: typeof MapPin; titre: string; lines: { texte: string; href?: string }[] }[] = [
   {
     icon: MapPin,
     titre: 'Adresse',
@@ -100,19 +104,27 @@ export default function ContactPage() {
                 <WhatsAppIcon size={20} /> Écrire sur WhatsApp
               </WhatsAppLink>
 
-              {/* Carte Google Maps */}
-              <div className="mt-10 rounded-card overflow-hidden border border-gray-200 h-56">
+              {/* Carte Google Maps (embed sans clé API ; domaine www.google.com pour la CSP frame-src) */}
+              <div className="mt-10 rounded-card overflow-hidden border border-gray-200 bg-gray-100
+                              h-64 sm:h-80 lg:h-96 shadow-sm">
                 <iframe
-                  src="https://maps.google.com/maps?q=Almamy+Kaloum+Conakry+Guin%C3%A9e&output=embed&z=15&hl=fr"
-                  width="100%"
-                  height="100%"
+                  src={MAP_EMBED_URL}
+                  className="w-full h-full block"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="LojalyxIT — Almamy, Kaloum, Conakry"
+                  title="Carte : LojalyxIT, Almamy, Kaloum, Conakry, Guinée"
                 />
               </div>
+              <a
+                href={MAP_LINK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 mt-3 text-sm text-gray-600 hover:text-primary hover:underline underline-offset-2"
+              >
+                <MapPin size={14} /> Ouvrir dans Google Maps
+              </a>
             </div>
           </div>
         </div>
