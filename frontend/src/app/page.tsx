@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, Shield, Clock, Award, ChevronRight } from 'lucide-react'
-import { getServices } from '@/lib/api'
+import { getServices, getContenuAccueil } from '@/lib/api'
 import { ServiceIcon } from '@/components/ui/ServiceIcon'
 import ReferencesSection from '@/components/sections/ReferencesSection'
 import type { Metadata } from 'next'
@@ -22,29 +22,28 @@ const CHIFFRES = [
 ]
 
 export default async function HomePage() {
-  const services = await getServices()
+  const [services, hero] = await Promise.all([getServices(), getContenuAccueil()])
 
   return (
     <>
-      {/* ── Hero ── */}
+      {/* ── Hero (textes éditables dans l'admin : Contenu du site) ── */}
       <section className="bg-bgdark min-h-[90vh] flex items-center">
         <div className="container-main py-24 md:py-32 text-center">
           <p className="font-script text-accent text-4xl md:text-5xl mb-6">LojalyxIT</p>
           <h1 className="font-display text-title text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-            Innover · Connecter
+            {hero.titre_ligne_1}
             <br />
-            <span className="text-primary">Transformer</span>
+            <span className="text-primary">{hero.titre_ligne_2}</span>
           </h1>
           <p className="text-textlight text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-            Votre partenaire IT de confiance à Conakry. Solutions cloud, cybersécurité,
-            développement logiciel et centre de formation certifiant.
+            {hero.sous_titre}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/devis" className="btn-primary text-base">
-              Demander un devis <ArrowRight size={18} />
+              {hero.bouton_principal_texte} <ArrowRight size={18} />
             </Link>
             <Link href="/formations" className="btn-ghost text-base">
-              Nos formations
+              {hero.bouton_secondaire_texte}
             </Link>
           </div>
         </div>

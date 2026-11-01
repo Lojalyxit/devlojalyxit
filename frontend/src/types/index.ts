@@ -126,3 +126,11 @@ export interface Inscription {
   created_at: string
   session_info: Session
 }
+
+export interface ContenuAccueil {
+  titre_ligne_1: string
+  titre_ligne_2: string
+  sous_titre: string
+  bouton_principal_texte: string
+  bouton_secondaire_texte: string
+}

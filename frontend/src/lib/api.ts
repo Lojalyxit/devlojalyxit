@@ -1,4 +1,4 @@
-import type { Service, FormationListItem, Formation, PaginatedResponse } from '@/types'
+import type { Service, FormationListItem, Formation, PaginatedResponse, ContenuAccueil } from '@/types'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'
 
@@ -20,6 +20,36 @@ export async function getServices(): Promise<Service[]> {
     return data.results
   } catch {
     return []
+  }
+}
+
+// Textes affichés si l'API ne répond pas (identiques à la migration de données Django)
+export const CONTENU_ACCUEIL_DEFAUT: ContenuAccueil = {
+  titre_ligne_1: 'We Build Smart',
+  titre_ligne_2: 'Digital Futures !!',
+  sous_titre:
+    'Votre partenaire IT de confiance à Conakry. Solutions cloud, cybersécurité, ' +
+    'développement logiciel et centre de formation certifiant.',
+  bouton_principal_texte: 'Demander un devis',
+  bouton_secondaire_texte: 'Nos formations',
+}
+
+export async function getContenuAccueil(): Promise<ContenuAccueil> {
+  try {
+    const data = await apiFetch<Partial<ContenuAccueil>>('/contenu-accueil/', {
+      // Les modifications faites dans l'admin apparaissent en moins d'une minute
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      next: { revalidate: 60 },
+    } as any)
+    // Un champ vide côté admin retombe sur le texte par défaut
+    const contenu = { ...CONTENU_ACCUEIL_DEFAUT }
+    for (const key of Object.keys(contenu) as (keyof ContenuAccueil)[]) {
+      const value = data[key]
+      if (typeof value === 'string' && value.trim() !== '') contenu[key] = value
+    }
+    return contenu
+  } catch {
+    return CONTENU_ACCUEIL_DEFAUT
   }
 }
 
