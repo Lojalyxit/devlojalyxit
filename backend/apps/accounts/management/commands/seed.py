@@ -1,6 +1,6 @@
 """
 Commande de seed : python manage.py seed
-Crée 7 services et les formations avec sessions et modules de démonstration.
+Crée 9 services et les formations avec sessions et modules de démonstration.
 """
 import datetime
 from django.core.management.base import BaseCommand
@@ -79,6 +79,26 @@ SERVICES = [
         ),
         'icone': 'graduation-cap',
         'ordre': 7,
+    },
+    {
+        'slug': 'cybersecurite',
+        'titre': 'Cybersécurité',
+        'description': (
+            'Audit de sécurité, pare-feu FortiGate et Palo Alto, sauvegardes, politiques '
+            "d'accès et sensibilisation des équipes."
+        ),
+        'icone': 'shield',
+        'ordre': 8,
+    },
+    {
+        'slug': 'automatisation-ia',
+        'titre': 'Automatisation & IA',
+        'description': (
+            'Automatisation des processus (relances, rapports, saisie, notifications) '
+            "avec des workflows intelligents et l'IA."
+        ),
+        'icone': 'bot',
+        'ordre': 9,
     },
 ]
 

@@ -1,17 +1,15 @@
 import Link from 'next/link'
 import { MapPin, Phone, Mail } from 'lucide-react'
 import { Logo } from '@/components/ui/Logo'
+import { SERVICES_OFFRES } from '@/data/services'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { ADRESSE, EMAIL_PUBLIC, TELEPHONE_AFFICHE, TELEPHONE_HREF } from '@/lib/site'
 
-const SERVICES_LINKS = [
-  { href: '/services#serveurs-cloud', label: 'Serveurs & Cloud' },
-  { href: '/services#developpement-logiciel', label: 'Développement Logiciel' },
-  { href: '/services#reseau-infrastructure', label: 'Réseau & Infrastructure' },
-  { href: '/services#cybersecurite', label: 'Cybersécurité' },
-  { href: '/services#marketing-digital', label: 'Marketing Digital' },
-]
+const SERVICES_LINKS = SERVICES_OFFRES.filter((s) => s.accueil).map((s) => ({
+  href: `/services#${s.slug}`,
+  label: s.titre,
+}))
 
 const FORMATION_LINKS = [
   { href: '/formations', label: 'Catalogue des formations' },

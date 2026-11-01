@@ -1,7 +1,9 @@
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, Shield, Clock, Award, ChevronRight } from 'lucide-react'
-import { getServices, getContenuAccueil } from '@/lib/api'
-import { ServiceIcon } from '@/components/ui/ServiceIcon'
+import { getContenuAccueil } from '@/lib/api'
+import { SERVICES_OFFRES } from '@/data/services'
+import { ServiceCard } from '@/components/sections/ServiceCard'
+import { Reveal } from '@/components/ui/Reveal'
 import ReferencesSection from '@/components/sections/ReferencesSection'
 import { ChiffresCles } from '@/components/sections/ChiffresCles'
 import { SLOGAN } from '@/lib/site'
@@ -18,7 +20,7 @@ const REASSURANCE = [
 ]
 
 export default async function HomePage() {
-  const [services, hero] = await Promise.all([getServices(), getContenuAccueil()])
+  const hero = await getContenuAccueil()
 
   return (
     <>
@@ -59,55 +61,30 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ── 7 Services ── */}
-      <section className="bg-white py-20 md:py-28">
+      {/* ── Services : Problème → Solution ── */}
+      <section className="bg-gray-50 py-20 md:py-28">
         <div className="container-main">
           <div className="text-center mb-14">
             <h2 className="font-display text-textdark text-3xl md:text-4xl font-bold mb-4">
-              Nos 7 piliers de service
+              Vos problèmes informatiques ont une solution.
             </h2>
-            <p className="text-muted max-w-xl mx-auto font-light">
-              De l'infrastructure au développement logiciel, en passant par la cybersécurité
-              et la formation certifiante.
+            <p className="text-gray-600 max-w-2xl mx-auto font-light text-lg">
+              Nous accompagnons les TPE, PME, ONG et administrations de Guinée avec des solutions
+              fiables, sécurisées et adaptées à leur réalité.
             </p>
           </div>
 
-          {services.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {services.map((s) => (
-                <Link
-                  key={s.slug}
-                  href={`/services#${s.slug}`}
-                  className="card p-6 group border-2 border-gray-100 hover:border-primary hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(42,74,58,0.15)] transition-[border-color,transform,box-shadow] duration-200 ease-out"
-                >
-                  <ServiceIcon
-                    name={s.icone}
-                    size={32}
-                    className="text-primary mb-4 group-hover:scale-110 transition-transform duration-200"
-                  />
-                  <h3 className="font-sans font-semibold text-textdark text-base mb-2">{s.titre}</h3>
-                  <p className="text-muted text-sm font-light leading-relaxed line-clamp-3">{s.description}</p>
-                  <span className="inline-flex items-center gap-1 text-primary text-sm mt-4 font-medium">
-                    En savoir plus <ChevronRight size={14} />
-                  </span>
-                </Link>
-              ))}
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {[...Array(7)].map((_, i) => (
-                <div key={i} className="card p-6 border border-gray-100 animate-pulse">
-                  <div className="w-8 h-8 bg-gray-200 rounded mb-4" />
-                  <div className="h-4 bg-gray-200 rounded w-3/4 mb-2" />
-                  <div className="h-3 bg-gray-100 rounded w-full" />
-                </div>
-              ))}
-            </div>
-          )}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {SERVICES_OFFRES.filter((s) => s.accueil).map((service, i) => (
+              <Reveal key={service.slug} delay={(i % 3) * 100} className="h-full">
+                <ServiceCard service={service} showTechnologies={false} />
+              </Reveal>
+            ))}
+          </div>
 
-          <div className="text-center mt-10">
-            <Link href="/services" className="btn-secondary">
-              Voir tous nos services
+          <div className="text-center mt-12">
+            <Link href="/services" className="btn-secondary inline-flex items-center gap-2">
+              Voir tous nos services <ChevronRight size={16} />
             </Link>
           </div>
         </div>

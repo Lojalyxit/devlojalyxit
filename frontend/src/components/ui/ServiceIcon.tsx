@@ -1,6 +1,6 @@
 import {
   Server, Code2, Network, TrendingUp, Wrench,
-  ShoppingBag, GraduationCap, LucideProps,
+  ShoppingBag, GraduationCap, ShieldCheck, Bot, LucideProps,
 } from 'lucide-react'
 
 const iconMap: Record<string, React.ElementType<LucideProps>> = {
@@ -11,6 +11,8 @@ const iconMap: Record<string, React.ElementType<LucideProps>> = {
   tool: Wrench,
   'shopping-bag': ShoppingBag,
   'graduation-cap': GraduationCap,
+  shield: ShieldCheck,
+  bot: Bot,
 }
 
 interface ServiceIconProps extends LucideProps {

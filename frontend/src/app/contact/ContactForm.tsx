@@ -4,6 +4,7 @@ import { useState, FormEvent } from 'react'
 import { Send, CheckCircle2, AlertCircle } from 'lucide-react'
 import { Field, Textarea } from '@/components/ui/Field'
 import { Button } from '@/components/ui/Button'
+import { SUJETS_CONTACT } from '@/data/services'
 
 interface FormData {
   nom: string
@@ -96,11 +97,9 @@ export function ContactForm() {
             className="w-full border border-muted rounded-btn px-4 py-3 font-sans font-light text-textdark bg-white focus:outline-none focus:border-primary transition-colors duration-150 text-base"
           >
             <option value="">Choisir un sujet</option>
-            <option value="devis">Demande de devis</option>
-            <option value="formation">Renseignement formation</option>
-            <option value="diagnostic">Diagnostic IT gratuit</option>
-            <option value="support">Support technique</option>
-            <option value="autre">Autre</option>
+            {SUJETS_CONTACT.map(({ value, label }) => (
+              <option key={value} value={value}>{label}</option>
+            ))}
           </select>
         </div>
       </div>
