@@ -179,56 +179,48 @@ export default function AProposPage() {
               </div>
             </div>
 
-            {/* ── Biographie ── */}
-            <div className="flex-1 space-y-6">
-
-              {/* Paragraphe 1 */}
-              <p className="text-textlight font-light leading-relaxed text-base md:text-lg">
-                DevOps &amp; Systems Engineer, HABA Cece Jérôme cumule plus de douze années
-                d&apos;expérience dans les technologies de l&apos;information, en Guinée comme à
-                l&apos;international. Titulaire d&apos;un Master en Administration Réseaux et Systèmes
-                obtenu à Sup&apos;Info Dakar et d&apos;une Maîtrise en Télécommunications de
-                l&apos;Université Gamal Abdel Nasser de Conakry, il a forgé son expertise au fil de
-                postes stratégiques : Responsable de la Cellule Système du projet FUGAS et Chef de
-                Division Exploitation au Ministère du Travail et de la Fonction Publique, Superviseur
-                Réseaux chez Orange Guinée, Coordinateur IT à la CENI, ou encore Responsable IT chez
-                Likak Research à Dakar.
+            {/* ── Le mot du fondateur (1re personne) ── */}
+            <div className="flex-1 max-w-2xl space-y-6 text-textlight font-light leading-relaxed text-base md:text-lg">
+              <p>
+                J&apos;ai fondé LojalyxIT avec une conviction simple : les entreprises guinéennes
+                méritent des solutions informatiques de niveau international, et les talents guinéens
+                méritent des formations qui les y préparent réellement.
               </p>
 
-              {/* Paragraphe 2 */}
-              <p className="text-textlight font-light leading-relaxed text-base md:text-lg">
-                Son parcours se distingue par une rare combinaison de compétences : administration des
-                systèmes Linux et Windows Server, cybersécurité (FortiGate, Palo Alto), cloud computing
-                (AWS), téléphonie IP et supervision réseau, ainsi qu&apos;une maîtrise des pratiques
-                DevOps modernes — conteneurisation Docker, intégration et déploiement continus (CI/CD)
-                et automatisation d&apos;infrastructures. Cette expertise est validée par un portefeuille
-                de certifications internationales reconnues — CCNA, CSCU, RHCSA, MCSA, Python PCEP,
-                FortiGate — auxquelles s&apos;ajoute une formation en cours en Intelligence
-                Artificielle. Professeur d&apos;Administration Réseaux et Systèmes depuis 2018 à
-                l&apos;Université Mercure International et à l&apos;Université Titi Camara, il met
-                également son savoir au service de la formation de la prochaine génération de talents IT
-                guinéens.
+              <p>
+                Depuis plus de douze ans, j&apos;exerce dans les technologies de l&apos;information, en
+                Guinée comme à l&apos;international. Titulaire d&apos;un Master en Administration
+                Réseaux et Systèmes (Sup&apos;Info Dakar) et d&apos;une Maîtrise en Télécommunications
+                (Université Gamal Abdel Nasser de Conakry), j&apos;ai occupé des postes stratégiques :
+                Responsable de la Cellule Système du projet FUGAS et Chef de Division Exploitation au
+                Ministère du Travail et de la Fonction Publique, Superviseur Réseaux chez Orange Guinée,
+                Coordinateur IT à la CENI et Responsable IT chez Likak Research à Dakar.
               </p>
 
-              {/* Paragraphe 3 — avec citation mise en valeur */}
-              <p className="text-textlight font-light leading-relaxed text-base md:text-lg">
-                C&apos;est cette double culture — celle du terrain et celle de l&apos;enseignement, de
-                l&apos;administration publique et de l&apos;entreprise — qui fonde la vision de
-                LojalyxIT.
+              <p>
+                Ces expériences m&apos;ont appris une chose : derrière chaque problème technique, il y a
+                une organisation qui a besoin de fonctionner. C&apos;est pourquoi LojalyxIT ne vend pas
+                seulement de la technologie, mais des solutions concrètes et durables : infrastructures
+                fiables, sécurité, cloud, automatisation et logiciels sur mesure.
+              </p>
+
+              <p>
+                Enseignant en Administration Réseaux et Systèmes depuis 2018, notamment à
+                l&apos;Université Mercure International et à l&apos;Université Titi Camara, je crois
+                profondément à la transmission. LojalyxIT Academy est née de cette conviction : former la
+                prochaine génération de professionnels IT de Guinée et d&apos;Afrique de l&apos;Ouest.
               </p>
 
               <blockquote className="border-l-4 border-accent pl-5 py-1">
-                <p className="text-accent font-light italic leading-relaxed text-base md:text-lg">
-                  &laquo;&nbsp;Mon ambition est de mettre la technologie au service de la performance
-                  des organisations guinéennes, avec des solutions fiables, accessibles et alignées sur
-                  les standards internationaux. La confiance se construit par l&apos;expertise, la
-                  rigueur et la transparence à chaque étape.&nbsp;&raquo;
+                <p className="text-accent italic">
+                  Notre ambition est claire : faire de la technologie un moteur de développement pour
+                  nos entreprises et notre pays.
                 </p>
               </blockquote>
 
-              <p className="text-textlight font-light leading-relaxed text-base md:text-lg">
-                Avec LojalyxIT, HABA Cece Jérôme entend faire de cette conviction le moteur de la
-                transformation digitale en Guinée et en Afrique de l&apos;Ouest.
+              <p className="pt-2 text-base">
+                <strong className="font-semibold text-title">HABA Cece Jérôme</strong>, Fondateur
+                &amp; Directeur Général
               </p>
             </div>
           </div>
