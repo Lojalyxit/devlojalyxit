@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Great_Vibes, Poppins } from 'next/font/google'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
@@ -41,6 +41,10 @@ export const metadata: Metadata = {
     url: 'https://lojalyxit.com',
     siteName: 'LojalyxIT',
   },
+}
+
+export const viewport: Viewport = {
+  themeColor: '#074525',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
