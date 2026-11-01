@@ -1,7 +1,10 @@
-import { Award, Users, BookOpen, Cpu } from 'lucide-react'
+import { Award, Users, BookOpen, Cpu, BadgeCheck } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { CHIFFRES_CLES } from '@/lib/site'
+import { CERTIFICATIONS } from '@/data/certifications'
+import { ChiffresCles } from '@/components/sections/ChiffresCles'
 
 export const metadata: Metadata = {
   title: 'À propos',
@@ -31,12 +34,7 @@ const VALEURS = [
   },
 ]
 
-const CERTIFICATIONS = [
-  'Cisco CCNA', 'Cisco CCNP Enterprise', 'CEH v13 (EC-Council)',
-  'CompTIA Security+', 'AWS Solutions Architect', 'Microsoft Azure Fundamentals',
-  'ITIL 4 Foundation', 'Prince2 Practitioner', 'Google Analytics', 'HubSpot Marketing',
-  'Python Institute PCEP',
-]
+const [EXPERIENCE, NB_CERTIFICATIONS, ENSEIGNEMENT] = CHIFFRES_CLES
 
 export default function AProposPage() {
   return (
@@ -66,9 +64,10 @@ export default function AProposPage() {
               les entreprises, administrations et professionnels dans leur transformation numérique.
             </p>
             <p className="text-textdark font-light leading-relaxed mb-6">
-              Avec plus de 12 ans d&apos;expérience, 11 certifications professionnelles et 7 années
-              d&apos;enseignement, notre fondateur a bâti une équipe capable de répondre aux défis IT
-              les plus complexes du marché guinéen et ouest-africain.
+              Avec plus de {EXPERIENCE.valeur} ans d&apos;expérience, {NB_CERTIFICATIONS.valeur} certifications
+              professionnelles et {ENSEIGNEMENT.valeur} années d&apos;enseignement, notre fondateur a bâti
+              une équipe capable de répondre aux défis IT les plus complexes du marché guinéen et
+              ouest-africain.
             </p>
             <p className="text-textdark font-light leading-relaxed">
               Notre Centre de Formation Certifiant propose des programmes reconnus internationalement,
@@ -79,21 +78,9 @@ export default function AProposPage() {
       </section>
 
       {/* Chiffres */}
-      <section className="bg-bgdeep py-16">
+      <section className="bg-bgdark py-16 md:py-20">
         <div className="container-main">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { value: '12+', label: 'Années d\'expérience' },
-              { value: '11', label: 'Certifications' },
-              { value: '7', label: 'Ans d\'enseignement' },
-              { value: '7', label: 'Domaines de service' },
-            ].map(({ value, label }) => (
-              <div key={label}>
-                <p className="font-display text-accent text-4xl md:text-5xl font-bold mb-2">{value}</p>
-                <p className="text-textlight text-sm font-light">{label}</p>
-              </div>
-            ))}
-          </div>
+          <ChiffresCles />
         </div>
       </section>
 
@@ -120,19 +107,29 @@ export default function AProposPage() {
       {/* Certifications */}
       <section className="bg-gray-50 py-16 md:py-20">
         <div className="container-main">
-          <h2 className="font-display text-textdark text-3xl font-bold text-center mb-10">
+          <h2 className="font-display text-textdark text-3xl font-bold text-center mb-3">
             Certifications professionnelles
           </h2>
-          <div className="flex flex-wrap justify-center gap-3">
-            {CERTIFICATIONS.map((cert) => (
-              <span
-                key={cert}
-                className="bg-white border border-gray-200 text-textdark text-sm font-sans font-medium px-4 py-2 rounded-btn hover:border-primary hover:text-primary transition-colors duration-150"
+          <p className="text-gray-600 text-center font-light mb-10">
+            Une expertise validée par les éditeurs de référence.
+          </p>
+          <ul className="flex flex-wrap justify-center gap-3 md:gap-4 max-w-4xl mx-auto">
+            {CERTIFICATIONS.map(({ nom, editeur }) => (
+              <li
+                key={nom}
+                className="flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-2 pr-5 py-2
+                           shadow-sm hover:border-accent hover:shadow-md transition-all duration-150"
               >
-                {cert}
-              </span>
+                <span className="w-9 h-9 rounded-full bg-primary text-accent flex items-center justify-center shrink-0">
+                  <BadgeCheck size={18} />
+                </span>
+                <span className="flex flex-col leading-tight">
+                  <span className="font-sans font-semibold text-textdark text-sm">{nom}</span>
+                  <span className="font-sans text-gray-600 text-xs">{editeur}</span>
+                </span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -201,12 +198,12 @@ export default function AProposPage() {
               {/* Paragraphe 2 */}
               <p className="text-textlight font-light leading-relaxed text-base md:text-lg">
                 Son parcours se distingue par une rare combinaison de compétences : administration des
-                systèmes Linux et Windows Server, cybersécurité (Fortigate, Palo Alto), cloud computing
+                systèmes Linux et Windows Server, cybersécurité (FortiGate, Palo Alto), cloud computing
                 (AWS), téléphonie IP et supervision réseau, ainsi qu&apos;une maîtrise des pratiques
                 DevOps modernes — conteneurisation Docker, intégration et déploiement continus (CI/CD)
                 et automatisation d&apos;infrastructures. Cette expertise est validée par un portefeuille
-                de certifications internationales reconnues — CCNA, CSCU, RHCSA, MSCA, Python PCEP,
-                Fortigate — auxquelles s&apos;ajoute une formation en cours en Intelligence
+                de certifications internationales reconnues — CCNA, CSCU, RHCSA, MCSA, Python PCEP,
+                FortiGate — auxquelles s&apos;ajoute une formation en cours en Intelligence
                 Artificielle. Professeur d&apos;Administration Réseaux et Systèmes depuis 2018 à
                 l&apos;Université Mercure International et à l&apos;Université Titi Camara, il met
                 également son savoir au service de la formation de la prochaine génération de talents IT

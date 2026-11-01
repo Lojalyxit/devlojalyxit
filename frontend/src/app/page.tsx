@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle, Shield, Clock, Award, ChevronRight } from 'luc
 import { getServices, getContenuAccueil } from '@/lib/api'
 import { ServiceIcon } from '@/components/ui/ServiceIcon'
 import ReferencesSection from '@/components/sections/ReferencesSection'
+import { ChiffresCles } from '@/components/sections/ChiffresCles'
 import { SLOGAN } from '@/lib/site'
 import type { Metadata } from 'next'
 
@@ -14,12 +15,6 @@ const REASSURANCE = [
   { icon: CheckCircle, label: 'Satisfait ou remboursé 30 jours' },
   { icon: Clock, label: 'Support client français 7J/7' },
   { icon: Shield, label: 'Paiement 100% sécurisé SSL' },
-]
-
-const CHIFFRES = [
-  { value: '12+', label: 'Années d\'expérience' },
-  { value: '11', label: 'Certifications professionnelles' },
-  { value: '7', label: 'Années d\'enseignement' },
 ]
 
 export default async function HomePage() {
@@ -124,14 +119,7 @@ export default async function HomePage() {
       {/* ── Chiffres clés ── */}
       <section className="bg-bgdark py-20">
         <div className="container-main">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
-            {CHIFFRES.map(({ value, label }) => (
-              <div key={label}>
-                <p className="font-display text-accent text-5xl md:text-6xl font-bold mb-2">{value}</p>
-                <p className="text-textlight font-light text-base">{label}</p>
-              </div>
-            ))}
-          </div>
+          <ChiffresCles />
         </div>
       </section>
 

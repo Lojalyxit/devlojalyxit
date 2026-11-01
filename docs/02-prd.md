@@ -44,7 +44,7 @@ Un site qui transforme la crédibilité technique du fondateur et l'offre de Loj
 - **Hero** : titre Playfair sur fond noir `#080808`, slogan « Innover · Connecter · Transformer », CTA vert `#559540` « Demander un devis ».
 - **Bandeau réassurance** : « Satisfait ou remboursé 30 jours · Support client français 7J/7 · Paiement 100% sécurisé SSL » (texte Poppins Light `#3D3D3D` ou `#CECECA` selon le fond).
 - **Section 7 piliers** : cartes avec icône verte, titre, court descriptif.
-- **Chiffres clés** : 12+ ans, 11 certifications, 7 ans d'enseignement.
+- **Chiffres clés** : 12+ ans, 11 certifications, 8 ans d'enseignement (professeur depuis 2018).
 - **CTA final** : diagnostic gratuit.
 
 ### 4.2 Services

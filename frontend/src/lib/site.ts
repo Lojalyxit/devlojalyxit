@@ -7,6 +7,16 @@ export const SLOGAN = 'We build smart digital futures.'
 export const SLOGAN_LIGNE_1 = 'We build smart'
 export const SLOGAN_LIGNE_2 = 'digital futures.'
 
+/**
+ * Chiffres clés — identiques partout sur le site (accueil, à propos…).
+ * Enseignement : professeur depuis 2018.
+ */
+export const CHIFFRES_CLES = [
+  { valeur: 12, suffixe: '+', label: "Années d'expérience" },
+  { valeur: 11, suffixe: '', label: 'Certifications professionnelles' },
+  { valeur: 8, suffixe: '', label: "Années d'enseignement" },
+] as const
+
 export const SITE_URL = 'https://lojalyxit.com'
 export const NOM_SOCIETE = 'LojalyxIT SARL'
 
