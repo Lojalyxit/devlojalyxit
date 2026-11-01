@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Clock, BarChart2, ArrowRight, Award } from 'lucide-react'
 import { getFormations } from '@/lib/api'
 import { Badge } from '@/components/ui/Badge'
+import { InscriptionActions } from '@/components/formations/InscriptionActions'
 import { formatGNF } from '@/lib/utils'
 import type { Metadata } from 'next'
 
@@ -102,12 +103,20 @@ export default async function FormationsPage() {
                       <> — {formatGNF(f.tarif_max_gnf)}</>
                     )}
                   </p>
-                  <Link
-                    href={`/formations/${f.slug}`}
-                    className="btn-primary text-sm inline-flex items-center gap-1 mt-auto"
-                  >
-                    Voir les détails <ArrowRight size={14} />
-                  </Link>
+                  <div className="mt-auto">
+                    <InscriptionActions
+                      slug={f.slug}
+                      titre={f.titre}
+                      lienPaiement={f.lien_paiement}
+                      sessionId={f.session_ouverte_id}
+                    />
+                    <Link
+                      href={`/formations/${f.slug}`}
+                      className="mt-3 inline-flex w-full items-center justify-center gap-1 text-sm font-medium text-primary hover:underline underline-offset-2"
+                    >
+                      Voir le programme détaillé <ArrowRight size={14} />
+                    </Link>
+                  </div>
                 </div>
               ))}
             </div>

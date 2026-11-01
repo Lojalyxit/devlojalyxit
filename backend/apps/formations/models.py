@@ -25,6 +25,13 @@ class Formation(models.Model):
             "officielle ». Laisser vide pour une formation sans certification d'éditeur."
         ),
     )
+    lien_paiement = models.URLField(
+        "Lien de paiement (Chariow)", max_length=500, blank=True, null=True,
+        help_text=(
+            "URL de la page de paiement Chariow. Si renseigné, « S'inscrire maintenant » ouvre ce "
+            "lien dans un nouvel onglet ; sinon le site propose l'inscription en ligne ou le contact."
+        ),
+    )
     tarif_min_gnf = models.DecimalField(max_digits=15, decimal_places=0)
     tarif_max_gnf = models.DecimalField(max_digits=15, decimal_places=0)
 

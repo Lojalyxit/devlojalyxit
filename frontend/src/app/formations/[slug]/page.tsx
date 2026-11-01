@@ -1,13 +1,14 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import {
-  Clock, BarChart2, Award, ArrowLeft, ArrowRight,
+  Clock, BarChart2, Award, ArrowLeft,
   CheckCircle, BookOpen, Calendar, Users,
 } from 'lucide-react'
 import { getFormation, getFormations } from '@/lib/api'
 import { Badge } from '@/components/ui/Badge'
 import { VideoPlayer } from '@/components/ui/VideoPlayer'
 import { MentionCertification } from '@/components/formations/MentionCertification'
+import { InscriptionActions } from '@/components/formations/InscriptionActions'
 import { formatGNF, formatDate } from '@/lib/utils'
 import type { Metadata } from 'next'
 
@@ -118,15 +119,14 @@ export default async function FormationDetailPage({ params }: Props) {
                 <span className="text-muted text-sm ml-2">→ {formatGNF(formation.tarif_max_gnf)}</span>
               )}
             </div>
-            {sessionsOuvertes.length > 0 ? (
-              <Link href={`/inscription?session=${sessionsOuvertes[0].id}`} className="btn-primary text-sm shrink-0">
-                S&apos;inscrire maintenant
-              </Link>
-            ) : (
-              <Link href="/contact" className="btn-secondary text-sm shrink-0">
-                Demander une session
-              </Link>
-            )}
+            <InscriptionActions
+              slug={formation.slug}
+              titre={formation.titre}
+              lienPaiement={formation.lien_paiement}
+              sessionId={sessionsOuvertes[0]?.id}
+              theme="dark"
+              className="w-full"
+            />
           </div>
         </div>
       </section>
@@ -309,20 +309,18 @@ export default async function FormationDetailPage({ params }: Props) {
                   En Francs Guinéens. Paiement par virement, Mobile Money ou espèces.
                 </p>
 
-                {sessionsOuvertes.length > 0 ? (
-                  <Link
-                    href={`/inscription?session=${sessionsOuvertes[0].id}`}
-                    className="btn-primary w-full text-center block mb-3"
-                  >
-                    S&apos;inscrire maintenant
-                  </Link>
-                ) : (
-                  <Link href="/contact" className="btn-secondary w-full text-center block mb-3">
-                    Demander une session
-                  </Link>
-                )}
-                <Link href="/contact" className="btn-ghost w-full text-center block text-sm">
-                  Nous contacter
+                <InscriptionActions
+                  slug={formation.slug}
+                  titre={formation.titre}
+                  lienPaiement={formation.lien_paiement}
+                  sessionId={sessionsOuvertes[0]?.id}
+                  theme="dark"
+                />
+                <Link
+                  href={`/contact?sujet=formation&formation=${formation.slug}`}
+                  className="mt-3 block text-center text-sm text-textlight hover:text-white underline-offset-2 hover:underline"
+                >
+                  Formation intra-entreprise ? Nous contacter
                 </Link>
 
                 <div className="mt-6 pt-6 border-t border-white/10 space-y-3 text-sm font-sans">
@@ -359,30 +357,24 @@ export default async function FormationDetailPage({ params }: Props) {
       </section>
 
       {/* ── CTA bas de page ──────────────────────────────────────────────── */}
-      <section className="bg-primary py-14">
+      <section className="bg-bgdeep border-t-2 border-accent/50 py-14">
         <div className="container-main text-center">
-          <h2 className="font-display text-white text-2xl md:text-3xl font-bold mb-3">
-            Prêt à vous certifier ?
+          <h2 className="font-display text-title text-2xl md:text-3xl font-bold mb-3">
+            Prêt à vous former ?
           </h2>
-          <p className="text-white/80 font-light mb-8 max-w-lg mx-auto">
-            Inscrivez-vous à une session ou contactez-nous pour une formation intra-entreprise sur mesure.
+          <p className="text-textlight font-light mb-8 max-w-lg mx-auto">
+            Inscrivez-vous dès maintenant ou posez-nous vos questions. Formation intra-entreprise
+            sur mesure possible.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            {sessionsOuvertes.length > 0 ? (
-              <Link
-                href={`/inscription?session=${sessionsOuvertes[0].id}`}
-                className="inline-flex items-center justify-center gap-2 bg-white text-primary px-8 py-3 rounded-btn font-medium hover:bg-title transition-colors duration-200"
-              >
-                S&apos;inscrire maintenant <ArrowRight size={16} />
-              </Link>
-            ) : null}
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 border border-white/50 text-white px-8 py-3 rounded-btn font-medium hover:border-white transition-colors duration-200"
-            >
-              Contacter notre équipe
-            </Link>
-          </div>
+          <InscriptionActions
+            slug={formation.slug}
+            titre={formation.titre}
+            lienPaiement={formation.lien_paiement}
+            sessionId={sessionsOuvertes[0]?.id}
+            theme="dark"
+            layout="row"
+            className="max-w-xl mx-auto"
+          />
         </div>
       </section>
 

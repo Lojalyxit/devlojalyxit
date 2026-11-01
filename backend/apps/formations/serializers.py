@@ -1,3 +1,5 @@
+from datetime import date
+
 from rest_framework import serializers
 from .models import Formation, FormationModule, Session, Inscription
 
@@ -31,12 +33,24 @@ class FormationSerializer(serializers.ModelSerializer):
 
 
 class FormationListSerializer(serializers.ModelSerializer):
+    # Prochaine session ouverte (pour le bouton « S'inscrire maintenant » des cartes du catalogue)
+    session_ouverte_id = serializers.SerializerMethodField()
+
     class Meta:
         model = Formation
         fields = (
             'id', 'slug', 'titre', 'domaine', 'duree_heures', 'niveau', 'tarif_min_gnf', 'tarif_max_gnf',
-            'organisme_certification',
+            'organisme_certification', 'lien_paiement', 'session_ouverte_id',
         )
+
+    def get_session_ouverte_id(self, obj):
+        # Utilise les sessions préchargées (prefetch_related) : pas de requête supplémentaire
+        aujourdhui = date.today()
+        ouvertes = sorted(
+            (s for s in obj.sessions.all() if s.statut == 'ouverte' and s.date_debut >= aujourdhui),
+            key=lambda s: s.date_debut,
+        )
+        return ouvertes[0].id if ouvertes else None
 
 
 class InscriptionSerializer(serializers.ModelSerializer):

@@ -18,6 +18,10 @@ export interface FormationListItem {
   tarif_max_gnf: string
   /** Éditeur de la certification officielle (null = pas de certification d'éditeur) */
   organisme_certification: string | null
+  /** Lien de paiement Chariow (null = pas de paiement en ligne) */
+  lien_paiement: string | null
+  /** Prochaine session ouverte (liste du catalogue uniquement) */
+  session_ouverte_id?: number | null
 }
 
 export interface Session {

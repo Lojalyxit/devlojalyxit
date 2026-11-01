@@ -17,11 +17,24 @@ class SessionInline(admin.TabularInline):
 
 @admin.register(Formation)
 class FormationAdmin(admin.ModelAdmin):
-    list_display = ('titre', 'domaine', 'niveau', 'duree_heures', 'certification', 'organisme_certification', 'tarif_min_gnf', 'tarif_max_gnf')
+    list_display = ('titre', 'domaine', 'niveau', 'duree_heures', 'organisme_certification', 'a_lien_paiement', 'tarif_min_gnf', 'tarif_max_gnf')
     list_filter = ('domaine', 'niveau')
     search_fields = ('titre', 'domaine', 'certification')
     prepopulated_fields = {'slug': ('titre',)}
     inlines = [FormationModuleInline, SessionInline]
+    fieldsets = (
+        (None, {'fields': ('titre', 'slug', 'domaine', 'niveau', 'duree_heures')}),
+        ('Inscription et paiement', {
+            'fields': ('lien_paiement', 'tarif_min_gnf', 'tarif_max_gnf'),
+            'description': "Collez ici le lien Chariow de la formation pour activer le paiement en ligne.",
+        }),
+        ('Certification', {'fields': ('certification', 'organisme_certification')}),
+        ('Contenu', {'fields': ('description_longue', 'programme')}),
+    )
+
+    @admin.display(boolean=True, description='Lien Chariow')
+    def a_lien_paiement(self, obj):
+        return bool(obj.lien_paiement)
 
 
 @admin.register(FormationModule)
