@@ -6,7 +6,7 @@
 // d'ancre (/services#slug). Le `sujet` est la valeur du paramètre /contact?sujet=…
 
 import {
-  Wrench, Network, ShieldCheck, Cloud, Code2, Bot, Megaphone, ShoppingBag, GraduationCap,
+  Wrench, Network, ShieldCheck, Cloud, Server, Code2, Bot, Megaphone, ShoppingBag, GraduationCap,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -91,6 +91,22 @@ export const SERVICES_OFFRES: ServiceOffre[] = [
     technologies: ['AWS', 'VPS', 'Docker', 'CI/CD'],
     image: { src: '/images/services/01-serveurs-cloud.webp', alt: 'Salle serveurs et infrastructure cloud' },
     accueil: true,
+  },
+  {
+    slug: 'virtualisation',
+    sujet: 'virtualisation',
+    titre: 'Virtualisation (Proxmox)',
+    icone: Server,
+    probleme: 'Vous avez besoin de plusieurs serveurs mais votre budget est limité ?',
+    solution:
+      'Nous virtualisons votre infrastructure avec Proxmox pour faire tourner plusieurs serveurs sur une seule machine.',
+    benefices: [
+      'Matériel mieux utilisé',
+      'Sauvegardes et restaurations rapides',
+      'Infrastructure facile à faire évoluer',
+    ],
+    technologies: ['Proxmox VE', 'Proxmox Backup Server', 'Linux', 'Windows Server'],
+    accueil: false,
   },
   {
     slug: 'developpement-logiciel',
